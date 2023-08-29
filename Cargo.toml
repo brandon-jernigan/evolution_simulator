@@ -1,5 +1,5 @@
 [package]
-name = "particle_simulation"
+name = "evolution_simulator"
 version = "0.1.0"
 edition = "2021"
 
@@ -11,6 +11,6 @@ rand = "0.8.4"
 rand_distr = "0.4"
 rayon = "1.5.1"
 num-format = "0.4"
-test = { git = "https://github.com/rust-lang/test.git" }
 log = "0.4"
 env_logger = "0.9"
+chrono = "0.4"

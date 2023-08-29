@@ -1,15 +1,18 @@
 // Import Rayon for parallel processing
 use rayon::prelude::*;
+use log::debug; // Make sure to import debug
 
 pub struct Cell {
-    // your attributes such as position, speed, etc.
+    pub id: i32, // Added an id for example
+    // your other attributes such as position, speed, etc.
 }
 
 impl Cell {
-    pub fn new() -> Self {
+    pub fn new(id: i32) -> Self {
         // Initialize a new cell
         Self {
-            // Initialize attributes
+            id,
+            // Initialize other attributes
         }
     }
 

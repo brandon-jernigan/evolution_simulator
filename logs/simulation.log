@@ -1,0 +1,8 @@
+2023-08-28 21:12:23 [INFO] - ================================= New Run =================================
+2023-08-28 21:12:23 [DEBUG] - This will not be logged
+2023-08-28 21:12:23 [DEBUG] - Updating cell with ID: 1
+2023-08-28 21:12:23 [DEBUG] - Updating cell with ID: 2
+2023-08-28 21:12:30 [INFO] - ================================= New Run =================================
+2023-08-28 21:12:30 [DEBUG] - This will not be logged
+2023-08-28 21:12:30 [DEBUG] - Updating cell with ID: 1
+2023-08-28 21:12:30 [DEBUG] - Updating cell with ID: 2

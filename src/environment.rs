@@ -8,8 +8,10 @@ pub struct Environment {
 impl Environment {
     pub fn new() -> Self {
         // Initialize environment and cells
+        let cells = vec![Cell::new(1), Cell::new(2)]; // Example cells
         Self {
-            // Initialize cells
+            cells,
+            // Initialize other attributes
         }
     }
 
