@@ -71,7 +71,7 @@ pub fn render_terrain(
     env: &Environment,
     canvas: &mut sdl2::render::Canvas<sdl2::video::Window>,
 ) -> Result<(), String> {
-    let color_mult = 255.0;
+    let color_mult = 255.0 * (0.5);
     for x in 0..env.terrain.len() {
         for y in 0..env.terrain[x].len() {
             let val = env.terrain[x][y];
