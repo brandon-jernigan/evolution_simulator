@@ -23,7 +23,7 @@ use crate::utils::log_util::init_logging;
 use crate::utils::ui_util::{check_escape_pressed, init_sdl, render_current_state}; // Add this line
 use environment::Environment;
 
-use constants::{ENV_SEED, ENV_STEP, FULLSCREEN, HEIGHT, LOG_LEVEL, WIDTH};
+use constants::{ENV_SEED, ENV_STEP, FULLSCREEN, HEIGHT, LOG_LEVEL, WIDTH, FRAME_DUR, TARGET_FRAME_RATE, NUM_CELLS};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let start_time = Instant::now();
@@ -41,12 +41,15 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     };
 
     debug!("main >> init_sdl");
-    let (mut ui_context, width, height) = init_sdl()?;
+    let (mut ui_context, WIDTH, HEIGHT) = init_sdl()?;
+
     debug!("main >> Environment::new. env_seed: {}", env_seed);
-    let mut env = Environment::new(width, height, env_seed, step);
+    let mut env = Environment::new(WIDTH, HEIGHT, env_seed, step);
+
     debug!("main >> Starting main loop");
 
     loop {
+        let loop_start_time = SystemTime::now();
         if ENV_STEP {
             step += 1;
         }
@@ -57,12 +60,22 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
         debug!("main >> render_current_state");
         render_current_state(&mut env, &mut ui_context.canvas)?;
+
+        debug!("main >> env.update()");
+        env.update();
+
         debug!("main >> env.update_terrain");
         if ENV_STEP {
             env.update_terrain(width, height, env_seed, step);
             step += 1;
         }
-        //sleep(Duration::from_millis(1000));
+        let elapsed_time = loop_start_time.elapsed()
+            .expect("Time went backwards")
+            .as_millis() as u64;
+
+        if elapsed_time < FRAME_DUR {
+            sleep(Duration::from_millis(FRAME_DUR - elapsed_time));
+        }
     }
 
     debug!("main >> Exiting main loop");
