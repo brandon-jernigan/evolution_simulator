@@ -1,666 +1,363 @@
-2023-09-02 17:03:44 [0000.000075s | Δ00.000074s] [INFO] - main >>  WIDTH: 1920, HEIGHT: 1080, FULLSCREEN: false, ENV_STEP: false, ENV_SEED: 0
-2023-09-02 17:03:44 [0000.000206s | Δ00.000132s] [DEBUG] - main >> init_sdl
-2023-09-02 17:03:46 [0001.141035s | Δ01.140829s] [DEBUG] - main >> Environment::new. env_seed: 2959564346
-2023-09-02 17:03:53 [0008.201697s | Δ07.060661s] [DEBUG] - main >> Starting main loop
-2023-09-02 17:03:53 [0008.206035s | Δ00.004338s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:53 [0008.493976s | Δ00.287941s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:53 [0008.494016s | Δ00.000040s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:53 [0008.835717s | Δ00.341701s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:53 [0008.835948s | Δ00.000232s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:53 [0008.984932s | Δ00.148983s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:53 [0008.984963s | Δ00.000032s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:54 [0009.117324s | Δ00.132361s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:54 [0009.117430s | Δ00.000106s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:54 [0009.268301s | Δ00.150871s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:54 [0009.268374s | Δ00.000073s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:54 [0009.398086s | Δ00.129712s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:54 [0009.398208s | Δ00.000122s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:54 [0009.560919s | Δ00.162711s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:54 [0009.561001s | Δ00.000082s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:54 [0009.695904s | Δ00.134903s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:54 [0009.696002s | Δ00.000098s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:54 [0009.848870s | Δ00.152869s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:54 [0009.848904s | Δ00.000034s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:54 [0009.979920s | Δ00.131016s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:54 [0009.980218s | Δ00.000298s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:55 [0010.126134s | Δ00.145916s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:55 [0010.126219s | Δ00.000085s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:55 [0010.257250s | Δ00.131032s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:55 [0010.257363s | Δ00.000112s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:55 [0010.404251s | Δ00.146888s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:55 [0010.404343s | Δ00.000093s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:55 [0010.534444s | Δ00.130101s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:55 [0010.534557s | Δ00.000113s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:55 [0010.687278s | Δ00.152721s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:55 [0010.687339s | Δ00.000061s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:55 [0010.816249s | Δ00.128910s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:55 [0010.816394s | Δ00.000145s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:55 [0010.966186s | Δ00.149792s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:55 [0010.966233s | Δ00.000047s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:56 [0011.094638s | Δ00.128405s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:56 [0011.094844s | Δ00.000206s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:56 [0011.246258s | Δ00.151414s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:56 [0011.246321s | Δ00.000063s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:56 [0011.375630s | Δ00.129309s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:56 [0011.375808s | Δ00.000177s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:56 [0011.523691s | Δ00.147883s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:56 [0011.523765s | Δ00.000074s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:56 [0011.652899s | Δ00.129134s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:56 [0011.653035s | Δ00.000136s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:56 [0011.807828s | Δ00.154793s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:56 [0011.807919s | Δ00.000091s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:56 [0011.937722s | Δ00.129802s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:56 [0011.937935s | Δ00.000213s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:56 [0012.091194s | Δ00.153259s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:56 [0012.091298s | Δ00.000105s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:57 [0012.220263s | Δ00.128965s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:57 [0012.220495s | Δ00.000232s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:57 [0012.372305s | Δ00.151810s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:57 [0012.372351s | Δ00.000046s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:57 [0012.502732s | Δ00.130381s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:57 [0012.502973s | Δ00.000241s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:57 [0012.653016s | Δ00.150043s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:57 [0012.653108s | Δ00.000092s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:57 [0012.783374s | Δ00.130266s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:57 [0012.783604s | Δ00.000230s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:57 [0012.934996s | Δ00.151393s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:57 [0012.935102s | Δ00.000106s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:57 [0013.064863s | Δ00.129761s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:57 [0013.064993s | Δ00.000130s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:58 [0013.214604s | Δ00.149611s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:58 [0013.214706s | Δ00.000102s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:58 [0013.344780s | Δ00.130074s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:58 [0013.344976s | Δ00.000196s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:58 [0013.494336s | Δ00.149360s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:58 [0013.494478s | Δ00.000142s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:58 [0013.623699s | Δ00.129220s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:58 [0013.623851s | Δ00.000152s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:58 [0013.776596s | Δ00.152746s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:58 [0013.776660s | Δ00.000064s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:58 [0013.907201s | Δ00.130541s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:58 [0013.907316s | Δ00.000115s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:58 [0014.059769s | Δ00.152453s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:58 [0014.059930s | Δ00.000160s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:59 [0014.194371s | Δ00.134442s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:59 [0014.194533s | Δ00.000162s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:59 [0014.345748s | Δ00.151215s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:59 [0014.345802s | Δ00.000054s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:59 [0014.476091s | Δ00.130288s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:59 [0014.476200s | Δ00.000110s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:59 [0014.627420s | Δ00.151220s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:59 [0014.627490s | Δ00.000070s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:59 [0014.758442s | Δ00.130952s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:59 [0014.758550s | Δ00.000108s] [DEBUG] - main >> render_current_state
-2023-09-02 17:03:59 [0014.906556s | Δ00.148006s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:03:59 [0014.906618s | Δ00.000062s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:03:59 [0015.038775s | Δ00.132156s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:03:59 [0015.038876s | Δ00.000101s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:00 [0015.189623s | Δ00.150747s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:00 [0015.189668s | Δ00.000045s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:00 [0015.323932s | Δ00.134264s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:00 [0015.324026s | Δ00.000094s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:00 [0015.473875s | Δ00.149849s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:00 [0015.473908s | Δ00.000033s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:00 [0015.604202s | Δ00.130294s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:00 [0015.604306s | Δ00.000104s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:00 [0015.771725s | Δ00.167419s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:00 [0015.771828s | Δ00.000103s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:00 [0015.910659s | Δ00.138830s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:00 [0015.910897s | Δ00.000238s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:00 [0016.064715s | Δ00.153818s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:00 [0016.064763s | Δ00.000048s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:01 [0016.193520s | Δ00.128757s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:01 [0016.193677s | Δ00.000157s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:01 [0016.342841s | Δ00.149164s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:01 [0016.342951s | Δ00.000110s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:01 [0016.473821s | Δ00.130870s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:01 [0016.473927s | Δ00.000106s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:01 [0016.621415s | Δ00.147489s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:01 [0016.621454s | Δ00.000038s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:01 [0016.751315s | Δ00.129861s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:01 [0016.751444s | Δ00.000129s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:01 [0016.900805s | Δ00.149361s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:01 [0016.900922s | Δ00.000117s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:01 [0017.032982s | Δ00.132059s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:01 [0017.033107s | Δ00.000125s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:02 [0017.183682s | Δ00.150575s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:02 [0017.183709s | Δ00.000027s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:02 [0017.316245s | Δ00.132536s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:02 [0017.316361s | Δ00.000116s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:02 [0017.467715s | Δ00.151355s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:02 [0017.467742s | Δ00.000027s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:02 [0017.598358s | Δ00.130615s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:02 [0017.598453s | Δ00.000095s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:02 [0017.745945s | Δ00.147492s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:02 [0017.746011s | Δ00.000066s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:02 [0017.876195s | Δ00.130184s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:02 [0017.876344s | Δ00.000149s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:02 [0018.032084s | Δ00.155740s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:02 [0018.032108s | Δ00.000024s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:03 [0018.163022s | Δ00.130914s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:03 [0018.163280s | Δ00.000258s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:03 [0018.311288s | Δ00.148008s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:03 [0018.311315s | Δ00.000027s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:03 [0018.444985s | Δ00.133670s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:03 [0018.445113s | Δ00.000128s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:03 [0018.592693s | Δ00.147580s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:03 [0018.592789s | Δ00.000096s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:03 [0018.722355s | Δ00.129566s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:03 [0018.722465s | Δ00.000109s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:03 [0018.870741s | Δ00.148276s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:03 [0018.870800s | Δ00.000059s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:03 [0019.000977s | Δ00.130177s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:03 [0019.001088s | Δ00.000111s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:04 [0019.149277s | Δ00.148189s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:04 [0019.149342s | Δ00.000065s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:04 [0019.282628s | Δ00.133286s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:04 [0019.282748s | Δ00.000120s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:04 [0019.429834s | Δ00.147086s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:04 [0019.429938s | Δ00.000104s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:04 [0019.561693s | Δ00.131755s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:04 [0019.561816s | Δ00.000123s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:04 [0019.710334s | Δ00.148518s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:04 [0019.710444s | Δ00.000110s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:04 [0019.847535s | Δ00.137091s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:04 [0019.847654s | Δ00.000119s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:04 [0020.009251s | Δ00.161598s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:04 [0020.009312s | Δ00.000061s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:05 [0020.145472s | Δ00.136159s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:05 [0020.145742s | Δ00.000270s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:05 [0020.299802s | Δ00.154061s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:05 [0020.299864s | Δ00.000062s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:05 [0020.430641s | Δ00.130776s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:05 [0020.430792s | Δ00.000151s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:05 [0020.579184s | Δ00.148392s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:05 [0020.579248s | Δ00.000063s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:05 [0020.709372s | Δ00.130124s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:05 [0020.709534s | Δ00.000163s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:05 [0020.858832s | Δ00.149298s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:05 [0020.858888s | Δ00.000056s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:05 [0020.991500s | Δ00.132612s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:05 [0020.991593s | Δ00.000092s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:06 [0021.140855s | Δ00.149262s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:06 [0021.140905s | Δ00.000050s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:06 [0021.272579s | Δ00.131674s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:06 [0021.272694s | Δ00.000114s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:06 [0021.425553s | Δ00.152860s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:06 [0021.425650s | Δ00.000097s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:06 [0021.557713s | Δ00.132063s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:06 [0021.557826s | Δ00.000113s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:06 [0021.709992s | Δ00.152166s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:06 [0021.710030s | Δ00.000038s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:06 [0021.841006s | Δ00.130975s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:06 [0021.841108s | Δ00.000102s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:06 [0021.987850s | Δ00.146743s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:06 [0021.987991s | Δ00.000141s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:07 [0022.118604s | Δ00.130613s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:07 [0022.118702s | Δ00.000099s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:07 [0022.269165s | Δ00.150463s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:07 [0022.269269s | Δ00.000104s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:07 [0022.398221s | Δ00.128953s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:07 [0022.398370s | Δ00.000149s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:07 [0022.547044s | Δ00.148674s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:07 [0022.547131s | Δ00.000087s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:07 [0022.675205s | Δ00.128074s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:07 [0022.675303s | Δ00.000099s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:07 [0022.824164s | Δ00.148860s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:07 [0022.824233s | Δ00.000070s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:07 [0022.954029s | Δ00.129796s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:07 [0022.954249s | Δ00.000219s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:08 [0023.106373s | Δ00.152124s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:08 [0023.106436s | Δ00.000063s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:08 [0023.235395s | Δ00.128959s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:08 [0023.235491s | Δ00.000096s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:08 [0023.385875s | Δ00.150385s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:08 [0023.385970s | Δ00.000095s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:08 [0023.519953s | Δ00.133983s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:08 [0023.520063s | Δ00.000111s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:08 [0023.666755s | Δ00.146692s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:08 [0023.666805s | Δ00.000050s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:08 [0023.795331s | Δ00.128526s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:08 [0023.795600s | Δ00.000269s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:08 [0023.944557s | Δ00.148957s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:08 [0023.944632s | Δ00.000075s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:08 [0024.073901s | Δ00.129269s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:08 [0024.074077s | Δ00.000176s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:09 [0024.231057s | Δ00.156980s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:09 [0024.231083s | Δ00.000026s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:09 [0024.364150s | Δ00.133067s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:09 [0024.364294s | Δ00.000144s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:09 [0024.517255s | Δ00.152961s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:09 [0024.517344s | Δ00.000089s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:09 [0024.646768s | Δ00.129424s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:09 [0024.646860s | Δ00.000092s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:09 [0024.795297s | Δ00.148436s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:09 [0024.795363s | Δ00.000067s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:09 [0024.924387s | Δ00.129024s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:09 [0024.924566s | Δ00.000178s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:09 [0025.074267s | Δ00.149702s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:09 [0025.074317s | Δ00.000050s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:10 [0025.205605s | Δ00.131288s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:10 [0025.205744s | Δ00.000139s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:10 [0025.355400s | Δ00.149656s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:10 [0025.355488s | Δ00.000088s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:10 [0025.488005s | Δ00.132517s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:10 [0025.488112s | Δ00.000106s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:10 [0025.638057s | Δ00.149946s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:10 [0025.638099s | Δ00.000042s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:10 [0025.767863s | Δ00.129763s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:10 [0025.767981s | Δ00.000118s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:10 [0025.915926s | Δ00.147946s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:10 [0025.915973s | Δ00.000047s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:10 [0026.045839s | Δ00.129866s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:10 [0026.046064s | Δ00.000225s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:11 [0026.197217s | Δ00.151153s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:11 [0026.197312s | Δ00.000096s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:11 [0026.328296s | Δ00.130984s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:11 [0026.328468s | Δ00.000172s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:11 [0026.477887s | Δ00.149419s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:11 [0026.477955s | Δ00.000068s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:11 [0026.608646s | Δ00.130691s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:11 [0026.608751s | Δ00.000105s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:11 [0026.758548s | Δ00.149797s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:11 [0026.758660s | Δ00.000112s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:11 [0026.890552s | Δ00.131892s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:11 [0026.890663s | Δ00.000112s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:11 [0027.039739s | Δ00.149075s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:11 [0027.039800s | Δ00.000061s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:12 [0027.168393s | Δ00.128593s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:12 [0027.168525s | Δ00.000132s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:12 [0027.320018s | Δ00.151493s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:12 [0027.320084s | Δ00.000066s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:12 [0027.451311s | Δ00.131227s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:12 [0027.451415s | Δ00.000105s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:12 [0027.600376s | Δ00.148961s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:12 [0027.600484s | Δ00.000107s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:12 [0027.730549s | Δ00.130065s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:12 [0027.730677s | Δ00.000129s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:12 [0027.879222s | Δ00.148545s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:12 [0027.879247s | Δ00.000025s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:12 [0028.013616s | Δ00.134369s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:12 [0028.013731s | Δ00.000115s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:13 [0028.164165s | Δ00.150434s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:13 [0028.164196s | Δ00.000031s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:13 [0028.294579s | Δ00.130383s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:13 [0028.294788s | Δ00.000209s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:13 [0028.443602s | Δ00.148814s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:13 [0028.443674s | Δ00.000072s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:13 [0028.573554s | Δ00.129880s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:13 [0028.573671s | Δ00.000117s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:13 [0028.725629s | Δ00.151959s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:13 [0028.725669s | Δ00.000039s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:13 [0028.859250s | Δ00.133581s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:13 [0028.859387s | Δ00.000137s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:13 [0029.008429s | Δ00.149042s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:13 [0029.008509s | Δ00.000080s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:14 [0029.139233s | Δ00.130724s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:14 [0029.139324s | Δ00.000091s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:14 [0029.290989s | Δ00.151666s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:14 [0029.291103s | Δ00.000114s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:14 [0029.421852s | Δ00.130749s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:14 [0029.421951s | Δ00.000099s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:14 [0029.568902s | Δ00.146951s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:14 [0029.568998s | Δ00.000096s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:14 [0029.700511s | Δ00.131513s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:14 [0029.700628s | Δ00.000117s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:14 [0029.852766s | Δ00.152138s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:14 [0029.852801s | Δ00.000035s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:14 [0029.986101s | Δ00.133300s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:14 [0029.986192s | Δ00.000091s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:15 [0030.144684s | Δ00.158492s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:15 [0030.144739s | Δ00.000054s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:15 [0030.281926s | Δ00.137187s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:15 [0030.282047s | Δ00.000121s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:15 [0030.441088s | Δ00.159041s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:15 [0030.441154s | Δ00.000066s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:15 [0030.571690s | Δ00.130536s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:15 [0030.571790s | Δ00.000099s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:15 [0030.720204s | Δ00.148414s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:15 [0030.720244s | Δ00.000040s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:15 [0030.849561s | Δ00.129317s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:15 [0030.849702s | Δ00.000141s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:15 [0030.999718s | Δ00.150016s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:15 [0030.999814s | Δ00.000096s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:16 [0031.129230s | Δ00.129416s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:16 [0031.129605s | Δ00.000375s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:16 [0031.281104s | Δ00.151498s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:16 [0031.281227s | Δ00.000124s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:16 [0031.411966s | Δ00.130738s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:16 [0031.412166s | Δ00.000201s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:16 [0031.564807s | Δ00.152641s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:16 [0031.564910s | Δ00.000103s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:16 [0031.695595s | Δ00.130685s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:16 [0031.695756s | Δ00.000161s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:16 [0031.844801s | Δ00.149046s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:16 [0031.844847s | Δ00.000046s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:16 [0031.976330s | Δ00.131483s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:16 [0031.976512s | Δ00.000182s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:17 [0032.125436s | Δ00.148924s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:17 [0032.125512s | Δ00.000075s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:17 [0032.256348s | Δ00.130836s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:17 [0032.256454s | Δ00.000106s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:17 [0032.404350s | Δ00.147896s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:17 [0032.404385s | Δ00.000035s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:17 [0032.535649s | Δ00.131264s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:17 [0032.535769s | Δ00.000120s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:17 [0032.689947s | Δ00.154178s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:17 [0032.689973s | Δ00.000026s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:17 [0032.821941s | Δ00.131968s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:17 [0032.822033s | Δ00.000092s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:17 [0032.980288s | Δ00.158255s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:17 [0032.980335s | Δ00.000048s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:18 [0033.112583s | Δ00.132248s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:18 [0033.112825s | Δ00.000242s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:18 [0033.263216s | Δ00.150391s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:18 [0033.263297s | Δ00.000081s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:18 [0033.393996s | Δ00.130698s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:18 [0033.394128s | Δ00.000132s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:18 [0033.542031s | Δ00.147903s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:18 [0033.542074s | Δ00.000043s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:18 [0033.672300s | Δ00.130227s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:18 [0033.672394s | Δ00.000094s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:18 [0033.821016s | Δ00.148622s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:18 [0033.821084s | Δ00.000068s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:18 [0033.950854s | Δ00.129769s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:18 [0033.950952s | Δ00.000098s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:19 [0034.102823s | Δ00.151872s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:19 [0034.102930s | Δ00.000107s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:19 [0034.234193s | Δ00.131263s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:19 [0034.234299s | Δ00.000106s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:19 [0034.383533s | Δ00.149234s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:19 [0034.383579s | Δ00.000046s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:19 [0034.513106s | Δ00.129527s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:19 [0034.513255s | Δ00.000149s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:19 [0034.663208s | Δ00.149953s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:19 [0034.663270s | Δ00.000062s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:19 [0034.793976s | Δ00.130706s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:19 [0034.794214s | Δ00.000238s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:19 [0034.945189s | Δ00.150975s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:19 [0034.945331s | Δ00.000142s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:19 [0035.078911s | Δ00.133580s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:19 [0035.079078s | Δ00.000168s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:20 [0035.234973s | Δ00.155894s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:20 [0035.235020s | Δ00.000047s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:20 [0035.365414s | Δ00.130394s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:20 [0035.365570s | Δ00.000156s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:20 [0035.516178s | Δ00.150608s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:20 [0035.516288s | Δ00.000110s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:20 [0035.650587s | Δ00.134299s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:20 [0035.650724s | Δ00.000138s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:20 [0035.798415s | Δ00.147690s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:20 [0035.798503s | Δ00.000088s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:20 [0035.928866s | Δ00.130363s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:20 [0035.928996s | Δ00.000130s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:20 [0036.078807s | Δ00.149811s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:20 [0036.078949s | Δ00.000142s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:21 [0036.209409s | Δ00.130460s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:21 [0036.209586s | Δ00.000177s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:21 [0036.357968s | Δ00.148382s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:21 [0036.358064s | Δ00.000097s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:21 [0036.488301s | Δ00.130237s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:21 [0036.488401s | Δ00.000100s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:21 [0036.637751s | Δ00.149349s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:21 [0036.637841s | Δ00.000091s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:21 [0036.767275s | Δ00.129433s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:21 [0036.767402s | Δ00.000128s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:21 [0036.921110s | Δ00.153707s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:21 [0036.921165s | Δ00.000055s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:21 [0037.058195s | Δ00.137030s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:21 [0037.058598s | Δ00.000403s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:22 [0037.209182s | Δ00.150585s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:22 [0037.209230s | Δ00.000048s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:22 [0037.346119s | Δ00.136888s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:22 [0037.346493s | Δ00.000375s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:22 [0037.496666s | Δ00.150172s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:22 [0037.496763s | Δ00.000097s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:22 [0037.627616s | Δ00.130853s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:22 [0037.627937s | Δ00.000322s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:22 [0037.778804s | Δ00.150866s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:22 [0037.778894s | Δ00.000091s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:22 [0037.909507s | Δ00.130613s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:22 [0037.909638s | Δ00.000131s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:22 [0038.063963s | Δ00.154324s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:22 [0038.064019s | Δ00.000056s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:23 [0038.196231s | Δ00.132212s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:23 [0038.196469s | Δ00.000238s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:23 [0038.360389s | Δ00.163920s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:23 [0038.360423s | Δ00.000034s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:23 [0038.492638s | Δ00.132215s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:23 [0038.492733s | Δ00.000096s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:23 [0038.643783s | Δ00.151049s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:23 [0038.643856s | Δ00.000074s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:23 [0038.772238s | Δ00.128382s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:23 [0038.772383s | Δ00.000145s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:23 [0038.922181s | Δ00.149798s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:23 [0038.922208s | Δ00.000027s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:23 [0039.050603s | Δ00.128394s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:23 [0039.050785s | Δ00.000182s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:24 [0039.198251s | Δ00.147467s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:24 [0039.198345s | Δ00.000094s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:24 [0039.331182s | Δ00.132837s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:24 [0039.331378s | Δ00.000196s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:24 [0039.486879s | Δ00.155501s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:24 [0039.486908s | Δ00.000029s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:24 [0039.619116s | Δ00.132208s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:24 [0039.619553s | Δ00.000437s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:24 [0039.773891s | Δ00.154338s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:24 [0039.773948s | Δ00.000058s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:24 [0039.904203s | Δ00.130255s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:24 [0039.905052s | Δ00.000849s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:24 [0040.058651s | Δ00.153599s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:24 [0040.058728s | Δ00.000077s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:25 [0040.189453s | Δ00.130725s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:25 [0040.189979s | Δ00.000526s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:25 [0040.341431s | Δ00.151452s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:25 [0040.341456s | Δ00.000025s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:25 [0040.474111s | Δ00.132655s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:25 [0040.474273s | Δ00.000162s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:25 [0040.639574s | Δ00.165302s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:25 [0040.639626s | Δ00.000051s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:25 [0040.773417s | Δ00.133791s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:25 [0040.773619s | Δ00.000202s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:25 [0040.933449s | Δ00.159830s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:25 [0040.933557s | Δ00.000109s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:25 [0041.075066s | Δ00.141508s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:25 [0041.075275s | Δ00.000210s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:26 [0041.228525s | Δ00.153250s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:26 [0041.228574s | Δ00.000049s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:26 [0041.358619s | Δ00.130045s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:26 [0041.358746s | Δ00.000127s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:26 [0041.511769s | Δ00.153022s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:26 [0041.511834s | Δ00.000066s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:26 [0041.641315s | Δ00.129481s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:26 [0041.641463s | Δ00.000148s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:26 [0041.794289s | Δ00.152825s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:26 [0041.794389s | Δ00.000101s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:26 [0041.928405s | Δ00.134016s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:26 [0041.928539s | Δ00.000134s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:26 [0042.080921s | Δ00.152382s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:26 [0042.081009s | Δ00.000088s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:27 [0042.209563s | Δ00.128553s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:27 [0042.209717s | Δ00.000154s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:27 [0042.363923s | Δ00.154206s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:27 [0042.364018s | Δ00.000095s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:27 [0042.492628s | Δ00.128611s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:27 [0042.492782s | Δ00.000153s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:27 [0042.646604s | Δ00.153823s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:27 [0042.646680s | Δ00.000076s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:27 [0042.778425s | Δ00.131745s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:27 [0042.778565s | Δ00.000141s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:27 [0042.930784s | Δ00.152218s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:27 [0042.930890s | Δ00.000107s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:27 [0043.060203s | Δ00.129313s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:27 [0043.060364s | Δ00.000161s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:28 [0043.210732s | Δ00.150368s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:28 [0043.210786s | Δ00.000054s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:28 [0043.343593s | Δ00.132806s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:28 [0043.343731s | Δ00.000138s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:28 [0043.492699s | Δ00.148969s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:28 [0043.492808s | Δ00.000109s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:28 [0043.621076s | Δ00.128268s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:28 [0043.621213s | Δ00.000137s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:28 [0043.771434s | Δ00.150221s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:28 [0043.771476s | Δ00.000042s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:28 [0043.901433s | Δ00.129957s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:28 [0043.901574s | Δ00.000140s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:28 [0044.054430s | Δ00.152857s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:28 [0044.054531s | Δ00.000101s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:29 [0044.185069s | Δ00.130538s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:29 [0044.185168s | Δ00.000099s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:29 [0044.336510s | Δ00.151342s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:29 [0044.336534s | Δ00.000024s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:29 [0044.467553s | Δ00.131019s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:29 [0044.467656s | Δ00.000103s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:29 [0044.618497s | Δ00.150842s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:29 [0044.618584s | Δ00.000087s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:29 [0044.753334s | Δ00.134750s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:29 [0044.753434s | Δ00.000099s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:29 [0044.901642s | Δ00.148209s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:29 [0044.901720s | Δ00.000078s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:29 [0045.034617s | Δ00.132897s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:29 [0045.034721s | Δ00.000104s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:30 [0045.183196s | Δ00.148476s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:30 [0045.183280s | Δ00.000083s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:30 [0045.314422s | Δ00.131142s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:30 [0045.314536s | Δ00.000114s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:30 [0045.466172s | Δ00.151635s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:30 [0045.466229s | Δ00.000057s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:30 [0045.596510s | Δ00.130281s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:30 [0045.596808s | Δ00.000298s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:30 [0045.746884s | Δ00.150076s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:30 [0045.746934s | Δ00.000050s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:30 [0045.877250s | Δ00.130315s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:30 [0045.877444s | Δ00.000195s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:30 [0046.025621s | Δ00.148177s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:30 [0046.025653s | Δ00.000032s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:31 [0046.155511s | Δ00.129858s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:31 [0046.155638s | Δ00.000127s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:31 [0046.305124s | Δ00.149486s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:31 [0046.305260s | Δ00.000136s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:31 [0046.436411s | Δ00.131152s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:31 [0046.436509s | Δ00.000098s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:31 [0046.589156s | Δ00.152647s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:31 [0046.589181s | Δ00.000025s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:31 [0046.718329s | Δ00.129148s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:31 [0046.718533s | Δ00.000204s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:31 [0046.880579s | Δ00.162046s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:31 [0046.880756s | Δ00.000177s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:31 [0047.009519s | Δ00.128763s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:31 [0047.009717s | Δ00.000198s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:32 [0047.161564s | Δ00.151847s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:32 [0047.161591s | Δ00.000027s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:32 [0047.296559s | Δ00.134967s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:32 [0047.297070s | Δ00.000511s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:32 [0047.458061s | Δ00.160991s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:32 [0047.458173s | Δ00.000112s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:32 [0047.589884s | Δ00.131711s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:32 [0047.590000s | Δ00.000117s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:32 [0047.751756s | Δ00.161756s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:32 [0047.751830s | Δ00.000074s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:32 [0047.887221s | Δ00.135391s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:32 [0047.887724s | Δ00.000504s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:32 [0048.041668s | Δ00.153944s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:32 [0048.041696s | Δ00.000027s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:33 [0048.186215s | Δ00.144519s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:33 [0048.186863s | Δ00.000648s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:33 [0048.347648s | Δ00.160786s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:33 [0048.347684s | Δ00.000036s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:33 [0048.482217s | Δ00.134533s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:33 [0048.482592s | Δ00.000375s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:33 [0048.639302s | Δ00.156710s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:33 [0048.639417s | Δ00.000114s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:33 [0048.770681s | Δ00.131264s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:33 [0048.770857s | Δ00.000176s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:33 [0048.924079s | Δ00.153222s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:33 [0048.924145s | Δ00.000065s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:33 [0049.059210s | Δ00.135065s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:33 [0049.059592s | Δ00.000382s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:34 [0049.214271s | Δ00.154679s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:34 [0049.214339s | Δ00.000069s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:34 [0049.343974s | Δ00.129635s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:34 [0049.344187s | Δ00.000213s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:34 [0049.495115s | Δ00.150928s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:34 [0049.495218s | Δ00.000102s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:34 [0049.625079s | Δ00.129862s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:34 [0049.625250s | Δ00.000170s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:34 [0049.778653s | Δ00.153404s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:34 [0049.778694s | Δ00.000041s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:34 [0049.908135s | Δ00.129441s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:34 [0049.908279s | Δ00.000144s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:34 [0050.062472s | Δ00.154193s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:34 [0050.062590s | Δ00.000118s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:35 [0050.199111s | Δ00.136520s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:35 [0050.199365s | Δ00.000254s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:35 [0050.347708s | Δ00.148344s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:35 [0050.347744s | Δ00.000036s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:35 [0050.479255s | Δ00.131511s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:35 [0050.479573s | Δ00.000318s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:35 [0050.636242s | Δ00.156669s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:35 [0050.636303s | Δ00.000061s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:35 [0050.766460s | Δ00.130157s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:35 [0050.766726s | Δ00.000266s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:35 [0050.930290s | Δ00.163564s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:35 [0050.930381s | Δ00.000091s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:35 [0051.064941s | Δ00.134561s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:35 [0051.065106s | Δ00.000165s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:36 [0051.229397s | Δ00.164291s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:36 [0051.229501s | Δ00.000103s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:36 [0051.360231s | Δ00.130730s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:36 [0051.360454s | Δ00.000223s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:36 [0051.513742s | Δ00.153288s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:36 [0051.513881s | Δ00.000139s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:36 [0051.645161s | Δ00.131280s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:36 [0051.645273s | Δ00.000112s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:36 [0051.793187s | Δ00.147914s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:36 [0051.793280s | Δ00.000093s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:36 [0051.922772s | Δ00.129492s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:36 [0051.922905s | Δ00.000132s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:36 [0052.071632s | Δ00.148728s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:36 [0052.071736s | Δ00.000103s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:37 [0052.206627s | Δ00.134891s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:37 [0052.206765s | Δ00.000138s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:37 [0052.355218s | Δ00.148453s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:37 [0052.355261s | Δ00.000043s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:37 [0052.485824s | Δ00.130563s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:37 [0052.485949s | Δ00.000125s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:37 [0052.637596s | Δ00.151647s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:37 [0052.637689s | Δ00.000093s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:37 [0052.767525s | Δ00.129835s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:37 [0052.767624s | Δ00.000100s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:37 [0052.916566s | Δ00.148942s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:37 [0052.916653s | Δ00.000087s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:37 [0053.045459s | Δ00.128806s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:37 [0053.045633s | Δ00.000174s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:38 [0053.198865s | Δ00.153232s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:38 [0053.198913s | Δ00.000048s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:38 [0053.330839s | Δ00.131927s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:38 [0053.330934s | Δ00.000095s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:38 [0053.479801s | Δ00.148867s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:38 [0053.479913s | Δ00.000112s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:38 [0053.611656s | Δ00.131743s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:38 [0053.611813s | Δ00.000157s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:38 [0053.759156s | Δ00.147343s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:38 [0053.759214s | Δ00.000058s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:38 [0053.887851s | Δ00.128637s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:38 [0053.887960s | Δ00.000109s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:38 [0054.035814s | Δ00.147854s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:38 [0054.035923s | Δ00.000109s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:39 [0054.165811s | Δ00.129888s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:39 [0054.165917s | Δ00.000106s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:39 [0054.317916s | Δ00.151999s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:39 [0054.318036s | Δ00.000120s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:39 [0054.451414s | Δ00.133378s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:39 [0054.451512s | Δ00.000098s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:39 [0054.601016s | Δ00.149504s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:39 [0054.601088s | Δ00.000072s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:39 [0054.731041s | Δ00.129953s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:39 [0054.731155s | Δ00.000114s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:39 [0054.879513s | Δ00.148358s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:39 [0054.879655s | Δ00.000142s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:39 [0055.008860s | Δ00.129205s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:39 [0055.008966s | Δ00.000106s] [DEBUG] - main >> render_current_state
-2023-09-02 17:04:40 [0055.159936s | Δ00.150970s] [DEBUG] - Updating cell with ID: 1
-2023-09-02 17:04:40 [0055.160024s | Δ00.000088s] [DEBUG] - Updating cell with ID: 2
-2023-09-02 17:04:40 [0055.293774s | Δ00.133750s] [DEBUG] - main >> env.update_terrain
-2023-09-02 17:04:40 [0055.794088s | Δ00.500314s] [DEBUG] - main >> Escape pressed, exiting
-2023-09-02 17:04:40 [0055.794364s | Δ00.000276s] [DEBUG] - main >> Exiting main loop
+2023-09-02 22:07:42 [0000.000074s | Δ00.000074s] [INFO] - main >>  WIDTH: 1920, HEIGHT: 1080, FULLSCREEN: false, ENV_STEP: false, ENV_SEED: 0
+2023-09-02 22:07:42 [0000.000175s | Δ00.000101s] [DEBUG] - main >> init_sdl
+2023-09-02 22:07:43 [0001.045242s | Δ01.045067s] [DEBUG] - main >> Environment::new. env_seed: 407638133
+2023-09-02 22:07:50 [0008.355361s | Δ07.310119s] [DEBUG] - main >> Starting main loop
+2023-09-02 22:07:50 [0008.358626s | Δ00.003265s] [DEBUG] - main >> render_current_state
+2023-09-02 22:07:51 [0009.195088s | Δ00.836461s] [DEBUG] - main >> env.update()
+2023-09-02 22:07:51 [0009.392602s | Δ00.197514s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:07:51 [0009.392712s | Δ00.000110s] [DEBUG] - main >> render_current_state
+2023-09-02 22:07:51 [0009.920996s | Δ00.528284s] [DEBUG] - main >> env.update()
+2023-09-02 22:07:52 [0010.092387s | Δ00.171391s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:07:52 [0010.092488s | Δ00.000101s] [DEBUG] - main >> render_current_state
+2023-09-02 22:07:52 [0010.530757s | Δ00.438270s] [DEBUG] - main >> env.update()
+2023-09-02 22:07:52 [0010.701690s | Δ00.170933s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:07:52 [0010.701787s | Δ00.000097s] [DEBUG] - main >> render_current_state
+2023-09-02 22:07:53 [0011.152593s | Δ00.450805s] [DEBUG] - main >> env.update()
+2023-09-02 22:07:53 [0011.322809s | Δ00.170216s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:07:53 [0011.323520s | Δ00.000711s] [DEBUG] - main >> render_current_state
+2023-09-02 22:07:53 [0011.763868s | Δ00.440348s] [DEBUG] - main >> env.update()
+2023-09-02 22:07:53 [0011.940012s | Δ00.176144s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:07:53 [0011.940323s | Δ00.000311s] [DEBUG] - main >> render_current_state
+2023-09-02 22:07:54 [0012.381080s | Δ00.440757s] [DEBUG] - main >> env.update()
+2023-09-02 22:07:54 [0012.552265s | Δ00.171185s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:07:54 [0012.552364s | Δ00.000099s] [DEBUG] - main >> render_current_state
+2023-09-02 22:07:55 [0012.991272s | Δ00.438908s] [DEBUG] - main >> env.update()
+2023-09-02 22:07:55 [0013.162876s | Δ00.171604s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:07:55 [0013.162999s | Δ00.000122s] [DEBUG] - main >> render_current_state
+2023-09-02 22:07:55 [0013.595891s | Δ00.432892s] [DEBUG] - main >> env.update()
+2023-09-02 22:07:55 [0013.765542s | Δ00.169652s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:07:55 [0013.765633s | Δ00.000091s] [DEBUG] - main >> render_current_state
+2023-09-02 22:07:56 [0014.203074s | Δ00.437440s] [DEBUG] - main >> env.update()
+2023-09-02 22:07:56 [0014.373876s | Δ00.170802s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:07:56 [0014.373966s | Δ00.000090s] [DEBUG] - main >> render_current_state
+2023-09-02 22:07:56 [0014.810251s | Δ00.436285s] [DEBUG] - main >> env.update()
+2023-09-02 22:07:57 [0014.981342s | Δ00.171091s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:07:57 [0014.981434s | Δ00.000093s] [DEBUG] - main >> render_current_state
+2023-09-02 22:07:57 [0015.416456s | Δ00.435021s] [DEBUG] - main >> env.update()
+2023-09-02 22:07:57 [0015.590914s | Δ00.174458s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:07:57 [0015.591009s | Δ00.000095s] [DEBUG] - main >> render_current_state
+2023-09-02 22:07:58 [0016.024699s | Δ00.433690s] [DEBUG] - main >> env.update()
+2023-09-02 22:07:58 [0016.204699s | Δ00.180000s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:07:58 [0016.204805s | Δ00.000106s] [DEBUG] - main >> render_current_state
+2023-09-02 22:07:58 [0016.645140s | Δ00.440336s] [DEBUG] - main >> env.update()
+2023-09-02 22:07:58 [0016.813923s | Δ00.168782s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:07:58 [0016.814017s | Δ00.000095s] [DEBUG] - main >> render_current_state
+2023-09-02 22:07:59 [0017.249895s | Δ00.435878s] [DEBUG] - main >> env.update()
+2023-09-02 22:07:59 [0017.421501s | Δ00.171606s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:07:59 [0017.421603s | Δ00.000102s] [DEBUG] - main >> render_current_state
+2023-09-02 22:07:59 [0017.864118s | Δ00.442515s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:00 [0018.035077s | Δ00.170959s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:00 [0018.035188s | Δ00.000111s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:00 [0018.454368s | Δ00.419180s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:00 [0018.635403s | Δ00.181035s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:00 [0018.635521s | Δ00.000118s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:01 [0019.031062s | Δ00.395541s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:01 [0019.199519s | Δ00.168457s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:01 [0019.199615s | Δ00.000096s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:01 [0019.594750s | Δ00.395134s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:01 [0019.763425s | Δ00.168675s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:01 [0019.763534s | Δ00.000109s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:02 [0020.193898s | Δ00.430363s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:02 [0020.364477s | Δ00.170580s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:02 [0020.364600s | Δ00.000122s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:02 [0020.799421s | Δ00.434821s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:03 [0020.971561s | Δ00.172140s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:03 [0020.971654s | Δ00.000094s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:03 [0021.404233s | Δ00.432578s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:03 [0021.580772s | Δ00.176539s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:03 [0021.580862s | Δ00.000090s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:04 [0022.012779s | Δ00.431917s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:04 [0022.186637s | Δ00.173858s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:04 [0022.186744s | Δ00.000107s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:04 [0022.637023s | Δ00.450279s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:04 [0022.824721s | Δ00.187698s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:04 [0022.825611s | Δ00.000890s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:05 [0023.256619s | Δ00.431008s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:05 [0023.426884s | Δ00.170265s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:05 [0023.427292s | Δ00.000408s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:05 [0023.845754s | Δ00.418462s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:06 [0024.014633s | Δ00.168879s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:06 [0024.014900s | Δ00.000268s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:06 [0024.417022s | Δ00.402121s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:06 [0024.605341s | Δ00.188320s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:06 [0024.605549s | Δ00.000208s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:07 [0025.011304s | Δ00.405755s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:07 [0025.196498s | Δ00.185194s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:07 [0025.197873s | Δ00.001375s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:07 [0025.669054s | Δ00.471181s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:07 [0025.843384s | Δ00.174330s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:07 [0025.843636s | Δ00.000252s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:08 [0026.282969s | Δ00.439333s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:08 [0026.454300s | Δ00.171331s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:08 [0026.454394s | Δ00.000094s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:08 [0026.887969s | Δ00.433575s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:09 [0027.058398s | Δ00.170429s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:09 [0027.058487s | Δ00.000090s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:09 [0027.457540s | Δ00.399053s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:09 [0027.629602s | Δ00.172061s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:09 [0027.629692s | Δ00.000090s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:10 [0028.031809s | Δ00.402117s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:10 [0028.205644s | Δ00.173836s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:10 [0028.205737s | Δ00.000093s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:10 [0028.605973s | Δ00.400236s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:10 [0028.810857s | Δ00.204883s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:10 [0028.810964s | Δ00.000107s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:11 [0029.298343s | Δ00.487379s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:11 [0029.467995s | Δ00.169653s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:11 [0029.468094s | Δ00.000098s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:11 [0029.901378s | Δ00.433285s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:12 [0030.074573s | Δ00.173195s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:12 [0030.074680s | Δ00.000107s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:12 [0030.512724s | Δ00.438044s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:12 [0030.683578s | Δ00.170854s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:12 [0030.683669s | Δ00.000091s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:13 [0031.114706s | Δ00.431037s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:13 [0031.284463s | Δ00.169757s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:13 [0031.284585s | Δ00.000122s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:13 [0031.718365s | Δ00.433780s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:13 [0031.888776s | Δ00.170411s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:13 [0031.888992s | Δ00.000216s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:14 [0032.326066s | Δ00.437074s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:14 [0032.497658s | Δ00.171592s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:14 [0032.497755s | Δ00.000097s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:14 [0032.934749s | Δ00.436994s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:15 [0033.107284s | Δ00.172535s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:15 [0033.107435s | Δ00.000151s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:15 [0033.546658s | Δ00.439223s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:15 [0033.718668s | Δ00.172010s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:15 [0033.718935s | Δ00.000267s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:16 [0034.157672s | Δ00.438737s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:16 [0034.327780s | Δ00.170107s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:16 [0034.327912s | Δ00.000132s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:16 [0034.754335s | Δ00.426423s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:16 [0034.922120s | Δ00.167786s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:16 [0034.922223s | Δ00.000103s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:17 [0035.353318s | Δ00.431095s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:17 [0035.525851s | Δ00.172533s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:17 [0035.525950s | Δ00.000099s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:17 [0035.960483s | Δ00.434534s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:18 [0036.129788s | Δ00.169305s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:18 [0036.129895s | Δ00.000107s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:18 [0036.577235s | Δ00.447340s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:18 [0036.753917s | Δ00.176682s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:18 [0036.754102s | Δ00.000184s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:19 [0037.217636s | Δ00.463535s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:19 [0037.395325s | Δ00.177689s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:19 [0037.395496s | Δ00.000171s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:19 [0037.845886s | Δ00.450391s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:20 [0038.022157s | Δ00.176271s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:20 [0038.022310s | Δ00.000152s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:20 [0038.462657s | Δ00.440348s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:20 [0038.634912s | Δ00.172255s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:20 [0038.635017s | Δ00.000105s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:21 [0039.074376s | Δ00.439359s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:21 [0039.283128s | Δ00.208752s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:21 [0039.283256s | Δ00.000128s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:21 [0039.750765s | Δ00.467509s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:21 [0039.920971s | Δ00.170207s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:21 [0039.921081s | Δ00.000109s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:22 [0040.360577s | Δ00.439497s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:22 [0040.535306s | Δ00.174728s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:22 [0040.535412s | Δ00.000106s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:23 [0040.971590s | Δ00.436179s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:23 [0041.144492s | Δ00.172901s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:23 [0041.144596s | Δ00.000104s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:23 [0041.586104s | Δ00.441508s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:23 [0041.758854s | Δ00.172750s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:23 [0041.758952s | Δ00.000098s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:24 [0042.189839s | Δ00.430887s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:24 [0042.362998s | Δ00.173158s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:24 [0042.363097s | Δ00.000099s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:24 [0042.794622s | Δ00.431525s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:24 [0042.965026s | Δ00.170404s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:24 [0042.965128s | Δ00.000102s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:25 [0043.397419s | Δ00.432291s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:25 [0043.565795s | Δ00.168377s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:25 [0043.565906s | Δ00.000110s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:26 [0044.001086s | Δ00.435181s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:26 [0044.172585s | Δ00.171499s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:26 [0044.172690s | Δ00.000105s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:26 [0044.602994s | Δ00.430304s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:26 [0044.777296s | Δ00.174301s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:26 [0044.777414s | Δ00.000119s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:27 [0045.216918s | Δ00.439503s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:27 [0045.387659s | Δ00.170741s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:27 [0045.387804s | Δ00.000146s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:27 [0045.821767s | Δ00.433962s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:28 [0046.002700s | Δ00.180934s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:28 [0046.002788s | Δ00.000088s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:28 [0046.443403s | Δ00.440614s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:28 [0046.614259s | Δ00.170856s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:28 [0046.614354s | Δ00.000096s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:29 [0047.015577s | Δ00.401222s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:29 [0047.188232s | Δ00.172656s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:29 [0047.188337s | Δ00.000105s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:29 [0047.579869s | Δ00.391532s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:29 [0047.751861s | Δ00.171992s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:29 [0047.751957s | Δ00.000095s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:30 [0048.155009s | Δ00.403052s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:30 [0048.324249s | Δ00.169240s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:30 [0048.324345s | Δ00.000096s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:30 [0048.757173s | Δ00.432828s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:30 [0048.927701s | Δ00.170528s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:30 [0048.927854s | Δ00.000153s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:31 [0049.364256s | Δ00.436402s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:31 [0049.539751s | Δ00.175495s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:31 [0049.539910s | Δ00.000159s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:32 [0050.015355s | Δ00.475445s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:32 [0050.190957s | Δ00.175602s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:32 [0050.191057s | Δ00.000100s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:32 [0050.625358s | Δ00.434301s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:32 [0050.797039s | Δ00.171681s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:32 [0050.797135s | Δ00.000095s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:33 [0051.235538s | Δ00.438403s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:33 [0051.409265s | Δ00.173727s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:33 [0051.409358s | Δ00.000094s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:33 [0051.845361s | Δ00.436002s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:34 [0052.017380s | Δ00.172019s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:34 [0052.017477s | Δ00.000097s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:34 [0052.459540s | Δ00.442063s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:34 [0052.631044s | Δ00.171504s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:34 [0052.631147s | Δ00.000104s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:35 [0053.067716s | Δ00.436569s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:35 [0053.245656s | Δ00.177940s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:35 [0053.245774s | Δ00.000118s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:35 [0053.689930s | Δ00.444156s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:35 [0053.867530s | Δ00.177599s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:35 [0053.867638s | Δ00.000108s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:36 [0054.271016s | Δ00.403378s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:36 [0054.444697s | Δ00.173681s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:36 [0054.444791s | Δ00.000094s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:36 [0054.846837s | Δ00.402046s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:37 [0055.020617s | Δ00.173780s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:37 [0055.020708s | Δ00.000090s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:37 [0055.429379s | Δ00.408672s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:37 [0055.599466s | Δ00.170087s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:37 [0055.599578s | Δ00.000112s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:38 [0056.026651s | Δ00.427072s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:38 [0056.202950s | Δ00.176299s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:38 [0056.203063s | Δ00.000114s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:38 [0056.635690s | Δ00.432627s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:38 [0056.805541s | Δ00.169851s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:38 [0056.805633s | Δ00.000092s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:39 [0057.240851s | Δ00.435218s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:39 [0057.411478s | Δ00.170627s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:39 [0057.411588s | Δ00.000110s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:39 [0057.842084s | Δ00.430496s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:40 [0058.012052s | Δ00.169968s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:40 [0058.012144s | Δ00.000092s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:40 [0058.414348s | Δ00.402204s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:40 [0058.588658s | Δ00.174310s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:40 [0058.588755s | Δ00.000097s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:41 [0058.995609s | Δ00.406854s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:41 [0059.172745s | Δ00.177136s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:41 [0059.172850s | Δ00.000105s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:41 [0059.592201s | Δ00.419352s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:41 [0059.777512s | Δ00.185311s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:41 [0059.777617s | Δ00.000105s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:42 [0060.233001s | Δ00.455383s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:42 [0060.407680s | Δ00.174679s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:42 [0060.407775s | Δ00.000095s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:42 [0060.841722s | Δ00.433947s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:43 [0061.011602s | Δ00.169880s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:43 [0061.011696s | Δ00.000094s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:43 [0061.447889s | Δ00.436193s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:43 [0061.617949s | Δ00.170060s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:43 [0061.618069s | Δ00.000120s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:44 [0062.055643s | Δ00.437574s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:44 [0062.227899s | Δ00.172255s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:44 [0062.227996s | Δ00.000097s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:44 [0062.624255s | Δ00.396259s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:44 [0062.798616s | Δ00.174361s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:44 [0062.798717s | Δ00.000101s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:45 [0063.206918s | Δ00.408201s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:45 [0063.375617s | Δ00.168700s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:45 [0063.375711s | Δ00.000093s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:45 [0063.776614s | Δ00.400903s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:45 [0063.949370s | Δ00.172756s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:45 [0063.949475s | Δ00.000105s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:46 [0064.381255s | Δ00.431780s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:46 [0064.550667s | Δ00.169412s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:46 [0064.550764s | Δ00.000096s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:47 [0064.981851s | Δ00.431087s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:47 [0065.152164s | Δ00.170314s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:47 [0065.152257s | Δ00.000093s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:47 [0065.582381s | Δ00.430124s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:47 [0065.756068s | Δ00.173687s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:47 [0065.756157s | Δ00.000089s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:48 [0066.205353s | Δ00.449197s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:48 [0066.375581s | Δ00.170228s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:48 [0066.375676s | Δ00.000095s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:48 [0066.808175s | Δ00.432499s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:49 [0066.981195s | Δ00.173020s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:49 [0066.981299s | Δ00.000104s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:49 [0067.420559s | Δ00.439260s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:49 [0067.590969s | Δ00.170411s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:49 [0067.591060s | Δ00.000091s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:50 [0067.988940s | Δ00.397879s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:50 [0068.164812s | Δ00.175872s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:50 [0068.164905s | Δ00.000093s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:50 [0068.564910s | Δ00.400005s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:50 [0068.736644s | Δ00.171734s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:50 [0068.736747s | Δ00.000103s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:51 [0069.135701s | Δ00.398955s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:51 [0069.309135s | Δ00.173434s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:51 [0069.309231s | Δ00.000095s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:51 [0069.750505s | Δ00.441274s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:51 [0069.921029s | Δ00.170525s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:51 [0069.921142s | Δ00.000113s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:52 [0070.365019s | Δ00.443876s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:52 [0070.545294s | Δ00.180275s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:52 [0070.545439s | Δ00.000145s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:53 [0070.984510s | Δ00.439071s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:53 [0071.162347s | Δ00.177837s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:53 [0071.162472s | Δ00.000125s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:53 [0071.619918s | Δ00.457445s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:53 [0071.795012s | Δ00.175094s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:53 [0071.795105s | Δ00.000093s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:54 [0072.232542s | Δ00.437437s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:54 [0072.408219s | Δ00.175677s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:54 [0072.408316s | Δ00.000097s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:54 [0072.837228s | Δ00.428912s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:55 [0073.005705s | Δ00.168477s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:55 [0073.005795s | Δ00.000090s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:55 [0073.440690s | Δ00.434896s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:55 [0073.608991s | Δ00.168301s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:55 [0073.609087s | Δ00.000096s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:56 [0074.044945s | Δ00.435858s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:56 [0074.215719s | Δ00.170774s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:56 [0074.215816s | Δ00.000096s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:56 [0074.658522s | Δ00.442707s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:56 [0074.837823s | Δ00.179301s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:56 [0074.837953s | Δ00.000130s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:57 [0075.247534s | Δ00.409581s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:57 [0075.428395s | Δ00.180861s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:57 [0075.428529s | Δ00.000134s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:57 [0075.844347s | Δ00.415818s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:58 [0076.019758s | Δ00.175410s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:58 [0076.019859s | Δ00.000102s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:58 [0076.437703s | Δ00.417844s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:58 [0076.618078s | Δ00.180375s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:58 [0076.618196s | Δ00.000118s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:59 [0077.072904s | Δ00.454708s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:59 [0077.252026s | Δ00.179122s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:59 [0077.252580s | Δ00.000554s] [DEBUG] - main >> render_current_state
+2023-09-02 22:08:59 [0077.696801s | Δ00.444222s] [DEBUG] - main >> env.update()
+2023-09-02 22:08:59 [0077.876311s | Δ00.179510s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:08:59 [0077.876443s | Δ00.000132s] [DEBUG] - main >> render_current_state
+2023-09-02 22:09:00 [0078.335952s | Δ00.459509s] [DEBUG] - main >> env.update()
+2023-09-02 22:09:00 [0078.521288s | Δ00.185336s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:09:00 [0078.521462s | Δ00.000174s] [DEBUG] - main >> render_current_state
+2023-09-02 22:09:00 [0078.961141s | Δ00.439680s] [DEBUG] - main >> env.update()
+2023-09-02 22:09:01 [0079.136077s | Δ00.174935s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:09:01 [0079.136181s | Δ00.000104s] [DEBUG] - main >> render_current_state
+2023-09-02 22:09:01 [0079.574302s | Δ00.438121s] [DEBUG] - main >> env.update()
+2023-09-02 22:09:01 [0079.751692s | Δ00.177390s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:09:01 [0079.751802s | Δ00.000110s] [DEBUG] - main >> render_current_state
+2023-09-02 22:09:02 [0080.185574s | Δ00.433772s] [DEBUG] - main >> env.update()
+2023-09-02 22:09:02 [0080.360787s | Δ00.175214s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:09:02 [0080.360877s | Δ00.000090s] [DEBUG] - main >> render_current_state
+2023-09-02 22:09:02 [0080.853295s | Δ00.492417s] [DEBUG] - main >> env.update()
+2023-09-02 22:09:03 [0081.038958s | Δ00.185663s] [DEBUG] - main >> env.update_terrain
+2023-09-02 22:09:03 [0081.539217s | Δ00.500259s] [DEBUG] - main >> Escape pressed, exiting
+2023-09-02 22:09:03 [0081.539309s | Δ00.000092s] [DEBUG] - main >> Exiting main loop

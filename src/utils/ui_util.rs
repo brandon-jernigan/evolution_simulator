@@ -2,6 +2,8 @@ extern crate sdl2; // SDL2 library
 
 use crate::environment::Environment;
 use sdl2::event::Event;
+use sdl2::render::Canvas;
+use sdl2::video::Window;
 use sdl2::gfx::primitives::DrawRenderer;
 use sdl2::keyboard::Keycode;
 use sdl2::pixels::Color;
@@ -61,7 +63,6 @@ pub fn render_current_state(
     canvas.clear();
 
     render_terrain(env, canvas)?;
-    env.update();
     render_cells(&env.cells, canvas)?;
 
     canvas.present();
@@ -73,7 +74,7 @@ pub fn render_terrain(
     env: &Environment,
     canvas: &mut sdl2::render::Canvas<sdl2::video::Window>,
 ) -> Result<(), String> {
-    let color_mult = 255.0 * (0.5);
+    let color_mult = 255.0 * (0.8);
     for x in 0..env.terrain.len() {
         for y in 0..env.terrain[x].len() {
             let val = env.terrain[x][y];
@@ -115,6 +116,7 @@ fn f32_color_to_sdl_color(color: [f32; 4]) -> sdl2::pixels::Color {
     );
     sdl2::pixels::Color::RGB(r, g, b)
 }
+
 
 pub fn check_escape_pressed(event_pump: &mut sdl2::EventPump) -> Result<bool, String> {
     for event in event_pump.poll_iter() {
