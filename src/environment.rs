@@ -3,6 +3,8 @@ use log::{debug, error, info, trace, warn, LevelFilter};
 use noise::{NoiseFn, Perlin, Seedable};
 use rand::Rng;
 
+use crate::constants::{ENV_SEED, ENV_STEP, FULLSCREEN, HEIGHT, LOG_LEVEL, WIDTH};
+
 pub struct Environment {
     pub cells: Vec<Cell>,
     pub terrain: Vec<Vec<f64>>,

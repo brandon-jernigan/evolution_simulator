@@ -14,6 +14,7 @@ use rand::Rng;
 
 // Internal module imports
 mod cell;
+mod constants;
 mod environment;
 mod utils;
 
@@ -22,12 +23,7 @@ use crate::utils::log_util::init_logging;
 use crate::utils::ui_util::{check_escape_pressed, init_sdl, render_current_state}; // Add this line
 use environment::Environment;
 
-const LOG_LEVEL: LevelFilter = LevelFilter::Debug;
-const WIDTH: u32 = 1920;
-const HEIGHT: u32 = 1080;
-const FULLSCREEN: bool = false;
-const ENV_STEP: bool = true;
-const ENV_SEED: u32 = 0;
+use constants::{ENV_SEED, ENV_STEP, FULLSCREEN, HEIGHT, LOG_LEVEL, WIDTH};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let start_time = Instant::now();
@@ -45,7 +41,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     };
 
     debug!("main >> init_sdl");
-    let (mut ui_context, width, height) = init_sdl(WIDTH, HEIGHT, FULLSCREEN)?;
+    let (mut ui_context, width, height) = init_sdl()?;
     debug!("main >> Environment::new. env_seed: {}", env_seed);
     let mut env = Environment::new(width, height, env_seed, step);
     debug!("main >> Starting main loop");
@@ -62,7 +58,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         debug!("main >> render_current_state");
         render_current_state(&mut env, &mut ui_context.canvas)?;
         debug!("main >> env.update_terrain");
-        env.update_terrain(width, height, env_seed, step);
+        if ENV_STEP {
+            env.update_terrain(width, height, env_seed, step);
+            step += 1;
+        }
         //sleep(Duration::from_millis(1000));
     }
 
