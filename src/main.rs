@@ -41,10 +41,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     };
 
     debug!("main >> init_sdl");
-    let (mut ui_context, WIDTH, HEIGHT) = init_sdl()?;
+    let (mut ui_context, width, height) = init_sdl()?;
 
     debug!("main >> Environment::new. env_seed: {}", env_seed);
-    let mut env = Environment::new(WIDTH, HEIGHT, env_seed, step);
+    let mut env = Environment::new(width, height, env_seed, step);
 
     debug!("main >> Starting main loop");
 
@@ -66,7 +66,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
         debug!("main >> env.update_terrain");
         if ENV_STEP {
-            env.update_terrain(width, height, env_seed, step);
+            env.update_terrain(height, height, env_seed, step);
             step += 1;
         }
         let elapsed_time = loop_start_time.elapsed()
