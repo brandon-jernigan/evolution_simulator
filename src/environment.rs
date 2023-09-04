@@ -31,6 +31,7 @@ impl Environment {
     }
 }
 
+
 fn generate_terrain(width: usize, height: usize, env_seed: u32, loop_step: i64) -> Vec<Vec<f64>> {
     let perlin = Perlin::new(env_seed);
     let step_rate: f64 = 2.0;

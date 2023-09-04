@@ -1,22 +1,24 @@
 // Import Rayon for parallel processing
 use log::{debug, error, info, trace, warn, LevelFilter};
 use rand::Rng;
+use rand_distr::num_traits::float;
 use rand_distr::{Distribution, Normal};
 use rayon::prelude::*;
 use std::time::{Duration, SystemTime};
 
-use crate::constants::{ENV_SEED, ENV_STEP, FULLSCREEN, HEIGHT, LOG_LEVEL, WIDTH, NUM_CELLS, FRAME_DUR, COLLIDE_SPRING, FRICTION_COEFF};
-use crate::utils::ui_util::{hsva_to_rgba, rgba_to_hsba, UIContext, render_terrain};
-use crate::utils::math_util::{velocity_to_polar, polar_to_velocity, gradient_along_heading, gradient_perpendicular_heading};
+use crate::constants::{ENV_SEED, ENV_STEP, FULLSCREEN, HEIGHT, LOG_LEVEL, WIDTH, NUM_CELLS, FRAME_DUR, COLLIDE_SPRING, POST_REPRODUCTION_COLLIDE_SPRING, FRICTION_COEFF};
+use crate::utils::ui_util::{hsva_to_rgba, rgba_to_hsva, UIContext, render_terrain};
+use crate::utils::math_util::{velocity_to_polar, polar_to_velocity, gradient_along_heading, gradient_perpendicular_heading, generate_non_zero_integer, generate_random_position};
 
 pub struct Cell {
     pub id: i64,
-    pub parent_id: Option<i64>,
+    pub parent_id: i64,
     pub creation_step: i64,
     pub age: i64,
     pub alive: bool,
     pub reproducing: bool,
     pub reproduce_now: bool,
+    pub last_reproduction_age: i64,
     pub x_pos: f64,
     pub y_pos: f64,
     pub x_vel: f64,
@@ -27,16 +29,18 @@ pub struct Cell {
     pub radius: f64,
     pub health: f64,
     pub health_capacity: f64,
-    pub wasting_rate: f64,
+    pub health_restore_rate: f64,
+    pub health_decay_rate: f64,
     pub energy: f64,
     pub energy_capacity: f64,
-    pub metabolic_rate: f64,
+    pub energy_decay_rate: f64,
     pub light_exposure: f64,
     pub light_consumtion_efficiency: f64,
     pub reproduction_cost: f64,
     pub reproduction_progress: f64,
     pub membrane_color: [u8; 4],
     pub inside_color: [u8; 4],
+    pub nucleus_color: [u8; 4],
     pub gravity_gradient_along_heading: f64,
     pub gravity_gradient_perpendicular_heading: f64,
 
@@ -60,27 +64,29 @@ impl Cell {
     pub fn new(id: i64, loop_step: i64) -> Self {
         // Initialize a new cell
         let mut rng = rand::thread_rng();
-        let mut mass: f64 = rng.gen_range(9.0..81.0);
+        let mut mass: f64 = rng.gen_range(100.0..196.0);
         let mut radius: f64 = (mass / 3.1415).sqrt();
         let x_vel: f64 = rng.gen_range(-0.5..0.5);
         let y_vel: f64 = rng.gen_range(-0.5..0.5);
-        let mut membrane_color = hsva_to_rgba(rng.gen_range(0.0..360.0), 1.0, 1.0, 1.0);
-        let mut inside_color = hsva_to_rgba(rng.gen_range(0.0..360.0), 1.0, 1.0, 1.0);
+        let mut membrane_color = hsva_to_rgba(rng.gen_range(0.0..1.0), 1.0, 1.0, 1.0);
+        let mut inside_color = hsva_to_rgba(rng.gen_range(0.0..1.0), 1.0, 1.0, 1.0);
+        let mut nucleus_color = hsva_to_rgba(rng.gen_range(0.0..1.0), 1.0, 1.0, 1.0);
         if id == 1 {
             membrane_color = hsva_to_rgba(0.0, 0.0, 1.0, 1.0);
             inside_color = hsva_to_rgba(0.0, 0.0, 1.0, 1.0);
-            mass = 100.0;
+            mass = 225.0;
             radius = (mass / 3.1415).sqrt();
         } 
         let (heading, speed) = velocity_to_polar(x_vel, y_vel);
         Self {
             id,
-            parent_id: None,
+            parent_id: -1,
             creation_step: loop_step,
             age: 0,
             alive: true,
             reproducing: false,
             reproduce_now: false,
+            last_reproduction_age: 0,
             x_pos: rng.gen_range((0.0 + radius)..(WIDTH as f64 - radius)),
             y_pos: rng.gen_range((0.0 + radius)..(HEIGHT as f64 - radius)),
             x_vel,
@@ -91,32 +97,39 @@ impl Cell {
             radius,
             health: 100.0,
             health_capacity: 100.0,
-            wasting_rate: 0.1,
+            health_restore_rate: 0.02,
+            health_decay_rate: 0.01,
             energy: 100.0,
             energy_capacity: 100.0,
-            metabolic_rate: 0.01,
-            light_consumtion_efficiency: 1.0,
+            energy_decay_rate: 0.01,
+            light_consumtion_efficiency: 0.05,
             light_exposure: 0.0,
-            reproduction_cost: 50.0,
+            reproduction_cost: 100.0,
             reproduction_progress: 0.0,
             membrane_color,
             inside_color,
+            nucleus_color,
             gravity_gradient_along_heading: 0.0,
             gravity_gradient_perpendicular_heading: 0.0,
         }
     }
 
-    pub fn new_from_reproduction(id: i64, parent_id: Option<i64>, creation_step: i64, mass: f64, x_pos: f64, y_pos: f64, x_vel: f64, y_vel: f64, membrane_color: [u8; 4], inside_color: [u8; 4]) -> Self {
+    pub fn new_from_reproduction(id: i64, parent_id: i64, creation_step: i64, mass: f64, x_pos: f64, y_pos: f64, x_vel: f64, y_vel: f64, membrane_color: [u8; 4], inside_color: [u8; 4], nucleus_color: [u8; 4]) -> Self {
         let mut rng = rand::thread_rng();
+        let color_mutate_magnitude = 0.01;
         let mut radius: f64 = (mass / 3.1415).sqrt();
         let [r, g, b, a] = membrane_color;
-        let (mut h, s, v, a) = rgba_to_hsba(r, g, b, a);
-        h += rng.gen_range(-0.01..0.01);
+        let (mut h, s, v, a) = rgba_to_hsva(r, g, b, a);
+        h += rng.gen_range(-color_mutate_magnitude..color_mutate_magnitude);
         let mut membrane_color = hsva_to_rgba(h, s, v, a);
         let [r, g, b, a] = inside_color;
-        let (mut h, s, v, a) = rgba_to_hsba(r, g, b, a);
-        h += rng.gen_range(-0.01..0.01);
+        let (mut h, s, v, a) = rgba_to_hsva(r, g, b, a);
+        h += rng.gen_range(-color_mutate_magnitude..color_mutate_magnitude);
         let mut inside_color = hsva_to_rgba(h, s, v, a);
+        let [r, g, b, a] = nucleus_color;
+        let (mut h, s, v, a) = rgba_to_hsva(r, g, b, a);
+        h += rng.gen_range(-color_mutate_magnitude..color_mutate_magnitude);
+        let mut nucleus_color = hsva_to_rgba(h, s, v, a);
         let (heading, speed) = velocity_to_polar(x_vel, y_vel);
         Self {
             id,
@@ -126,6 +139,7 @@ impl Cell {
             alive: true,
             reproducing: false,
             reproduce_now: false,
+            last_reproduction_age: 0,
             x_pos,
             y_pos,
             x_vel,
@@ -136,16 +150,18 @@ impl Cell {
             radius,
             health: 100.0,
             health_capacity: 100.0,
-            wasting_rate: 0.1,
+            health_restore_rate: 0.2,
+            health_decay_rate: 0.1,
             energy: 100.0,
             energy_capacity: 100.0,
-            metabolic_rate: 0.01,
-            light_consumtion_efficiency: 1.0,
+            energy_decay_rate: 0.01,
+            light_consumtion_efficiency: 0.05,
             light_exposure: 0.0,
-            reproduction_cost: 50.0,
+            reproduction_cost: 100.0,
             reproduction_progress: 0.0,
             membrane_color,
             inside_color,
+            nucleus_color,
             gravity_gradient_along_heading: 0.0,
             gravity_gradient_perpendicular_heading: 0.0,
         }
@@ -160,27 +176,30 @@ impl Cell {
         self.handle_boundary_collision();
         self.update_gravity_gradient_sense(gradient);
         self.update_light_exposure_sense(terrain);
-        self.update_energy();
-        self.update_health();
         self.update_and_check_reproduction();
+        self.update_health();
+        self.update_energy();
         if self.id == 1 {
             self.print_cell_properties();
         }
     }
 
     pub fn update_and_check_reproduction(&mut self){
-        if self.energy >= self.reproduction_cost * 1.5 {
+        if self.energy >= self.energy_capacity * 0.2 {
             self.reproducing = true;
-        } 
+        } else {
+            self.reproducing = false;
+        }
         
         if self.reproducing {
-            self.energy -= self.reproduction_cost * 0.01;
-            self.reproduction_progress += 0.01;
+            self.energy -= self.reproduction_cost * 0.02;
+            self.reproduction_progress += 0.02;
         }
         if self.reproduction_progress >= 1.0 {
             self.reproduction_progress = 0.0;
             self.reproducing = false;
             self.reproduce_now = true;
+            self.last_reproduction_age = self.age;
         }
 
     }
@@ -189,8 +208,10 @@ impl Cell {
     }
 
     pub fn update_energy(&mut self) {
-        self.energy -= self.metabolic_rate * self.mass;
+        self.energy -= self.energy_decay_rate * self.mass;
+        self.energy -= f64::min(self.health_restore_rate * self.health_capacity, self.health_capacity - self.health);
         self.energy += self.light_exposure * self.light_consumtion_efficiency * 100.0;
+
         if self.energy <= 0.0 {
             self.energy = 0.0;
         } else if self.energy >= self.energy_capacity {
@@ -201,15 +222,10 @@ impl Cell {
     }
 
     pub fn update_health(&mut self) {
-        if self.energy <= 0.33 * self.energy_capacity {
-            self.health -= self.energy_capacity/self.energy * self.wasting_rate;
-            if self.energy <= 0.1 * self.energy_capacity {
-                self.health -= 10.0 * self.wasting_rate;
-            } 
-        }
-        if self.energy >= 0.66 * self.energy_capacity {
-            self.health += self.energy/self.energy_capacity * self.wasting_rate;
-        } 
+
+        self.health -= f64::min(self.health_decay_rate * self.health_capacity, self.health);
+        self.health += f64::min(f64::min(self.health_restore_rate * self.health_capacity, self.health_capacity - self.health), self.energy);
+
         if self.health <= 0.0 {
             self.health = 0.0;
             self.alive = false;
@@ -223,26 +239,26 @@ impl Cell {
         println!("  Creation Step: {}", self.creation_step);
         println!("  Age: {}", self.age);
         println!("  Alive: {}", self.alive);
-        println!("  Position: ({:.6}, {:.6})", self.x_pos, self.y_pos);
-        println!("  Velocity: ({:.6}, {:.6})", self.x_vel, self.y_vel);
-        println!("  Heading: {:.6}", self.heading);
+        println!("  Position: ({:.3}, {:.3})", self.x_pos, self.y_pos);
+        println!("  Velocity: ({:.3}, {:.3})", self.x_vel, self.y_vel);
+        println!("  Heading: {:.3}", self.heading);
         println!("  Speed: {:.6}", self.speed);
-        println!("  Mass: {:.6}", self.mass);
-        println!("  Radius: {:.6}", self.radius);
-        println!("  Health: {:.6}/{:.6}", self.health, self.health_capacity);
-        println!("  Wasting Rate: {:.6}", self.wasting_rate);
-        println!("  Energy: {:.6}/{:.6}", self.energy, self.energy_capacity);
-        println!("  Metabolic Rate: {:.6}", self.metabolic_rate);
-        println!("  Light Exposure: {:.6}", self.light_exposure);
-        println!("  Light Consumption Efficiency: {:.6}", self.light_consumtion_efficiency);
-        println!("  Membrane Color: {:?}", self.membrane_color);
+        println!("  Mass: {:.1}", self.mass);
+        println!("  Radius: {:.1}", self.radius);
+        println!("  Health: {:.1}/{:.1}", self.health, self.health_capacity);
+        println!("  Health Decay Rate: {:.3}", self.health_decay_rate);
+        println!("  Energy: {:.1}/{:.1}", self.energy, self.energy_capacity);
+        println!("  Energy Decay Rate: {:.3}", self.energy_decay_rate);
+        println!("  Light Exposure: {:.3}", self.light_exposure);
+        println!("  Light Consumption Efficiency: {:.3}", self.light_consumtion_efficiency);
+        println!("  Membrane Color: {:?}", self.energy_decay_rate);
         println!("  Inside Color: {:?}", self.inside_color);
         println!("  Gravity Gradient Along Heading: {:.6}", self.gravity_gradient_along_heading);
         println!("  Gravity Gradient Perpendicular Heading: {:.6}", self.gravity_gradient_perpendicular_heading);
         println!("  Reproducing: {}", self.reproducing);
         println!("  Reproduce Now: {}", self.reproduce_now);
-        println!("  Reproduction Cost: {:.6}", self.reproduction_cost);
-        println!("  Reproduction Progress: {:.6}", self.reproduction_progress);
+        println!("  Reproduction Cost: {:.1}", self.reproduction_cost);
+        println!("  Reproduction Progress: {:.3}", self.reproduction_progress);
         println!();  
     }
 
@@ -257,7 +273,10 @@ impl Cell {
     pub fn handle_cell_collision(&mut self, cell2: &mut Cell) {
         let dx = self.x_pos - cell2.x_pos;
         let dy = self.y_pos - cell2.y_pos;
-        let distance_squared = dx * dx + dy * dy;
+        let mut distance_squared = dx * dx + dy * dy;
+        if distance_squared == 0.0 {
+            distance_squared = 0.1;
+        }
         
         let min_dist = (self.radius + cell2.radius) as f64;
     
@@ -269,7 +288,13 @@ impl Cell {
             let nx = dx / distance;
             let ny = dy / distance;
 
-            let force = overlap * COLLIDE_SPRING;
+            let mut force: f64;
+            
+            if (self.age - self.last_reproduction_age <= 30) && (cell2.age - cell2.last_reproduction_age <= 30) && ((self.id == cell2.parent_id) || (self.parent_id == cell2.id)) {
+                force = overlap * POST_REPRODUCTION_COLLIDE_SPRING;
+            } else {
+                force = overlap * COLLIDE_SPRING;
+            }
 
             let ax1 = force / self.mass as f64;
             let ay1 = force / self.mass as f64;
@@ -344,7 +369,13 @@ impl Cell {
 // Function to update cells in parallel
 pub fn update_cells(cells: &mut Vec<Cell>, terrain: &[Vec<f64>], gradient: &[Vec<(f64, f64)>], loop_step: i64) {
     let mut num_cells_updated = 0;
+    reproduce_now(cells, loop_step);
+    remove_dead_cells(cells);
     let len = cells.len();
+    for cell in cells.iter_mut() {
+        cell.update(terrain, gradient, loop_step);
+        num_cells_updated += 1;
+    }
     for i in 0..len {
         for j in (i + 1)..len {
             let (left, right) = cells.split_at_mut(i + 1);
@@ -353,37 +384,48 @@ pub fn update_cells(cells: &mut Vec<Cell>, terrain: &[Vec<f64>], gradient: &[Vec
             cell1.handle_cell_collision(cell2);        }
     }
     
-    cells.iter_mut().for_each(|cell| {
-        cell.update(terrain, gradient, loop_step);
-        num_cells_updated += 1;
-    });
     println!("Number of cells updated: {}", num_cells_updated);
     println!();
 }
 
-pub fn reproduce_now(cells: &mut Vec<Cell>, id: i64, loop_step: i64) {
-    let mut rng = rand::thread_rng();
-    let mut new_cells: Vec<Cell> = Vec::new();
+pub fn reproduce_now(cells: &mut Vec<Cell>, loop_step: i64) {
+    let mut rng = rand::thread_rng();  // Not used yet
     let mut max_id = 0;
-    let mut indices_to_add = Vec::new();
-    for (index, cell) in cells.iter_mut().enumerate() {
+    let mut cells_to_add: Vec<Cell> = Vec::new();
+
+    for cell in cells.iter_mut() {
         if cell.id > max_id {
             max_id = cell.id;
         }
+    }
+    
+    for cell in cells.iter_mut() {
         if cell.reproduce_now {
-            indices_to_add.push(index);
+            let child_mass = cell.mass;
+            let (x_offset, y_offset) = generate_random_position(&mut rng, cell.radius/2.0, cell.radius/2.0);
+            let child_x_pos = cell.x_pos + x_offset;
+            let child_y_pos = cell.y_pos + y_offset;
+            let child_cell = Cell::new_from_reproduction(max_id + 1 as i64, cell.id, loop_step, child_mass, child_x_pos, child_y_pos, cell.x_vel, cell.y_vel, cell.membrane_color, cell.inside_color, cell.nucleus_color);
+            //child_cell.print_cell_properties();
+            cells_to_add.push(child_cell);
+            max_id += 1;
+            // Reset the flag
             cell.reproduce_now = false;
         }
     }
-    for index in indices_to_add {
-        let cell = &cells[index];
-        if cell.reproduce_now {
-            let mut new_cell = Cell::new(id, loop_step);
-            new_cell.parent_id = Some(cell.id as i64);
-            new_cells.push(new_cell);
-            let child_mass = cell.mass;
-            cells.push(Cell::new_from_reproduction(max_id + 1 as i64, cell.parent_id, loop_step, child_mass, cell.x_pos, cell.y_pos, cell.x_vel, cell.y_vel, cell.membrane_color, cell.inside_color));
-            max_id += 1;
+    
+    // Append the new cells to the original list
+    cells.append(&mut cells_to_add);
+}
+
+pub fn remove_dead_cells(cells: &mut Vec<Cell>) {
+    let initial_len = cells.len();  // Debug print
+    cells.retain(|cell| {
+        let keep = cell.alive;
+        if !keep {
+            //println!("Initial number of cells: {}, Removing dead cell with ID: {}",initial_len, cell.id);  // Debug print
         }
-    }
+        keep
+    });
+    //println!("Initial number of cells: {}, Remaining cells: {}", initial_len, cells.len());  // Debug print
 }
