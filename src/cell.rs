@@ -64,7 +64,7 @@ impl Cell {
     pub fn new(id: i64, loop_step: i64) -> Self {
         // Initialize a new cell
         let mut rng = rand::thread_rng();
-        let mut mass: f64 = rng.gen_range(100.0..196.0);
+        let mut mass: f64 = rng.gen_range(122.0..225.0);
         let mut radius: f64 = (mass / 3.1415).sqrt();
         let x_vel: f64 = rng.gen_range(-0.5..0.5);
         let y_vel: f64 = rng.gen_range(-0.5..0.5);
@@ -74,7 +74,7 @@ impl Cell {
         if id == 1 {
             membrane_color = hsva_to_rgba(0.0, 0.0, 1.0, 1.0);
             inside_color = hsva_to_rgba(0.0, 0.0, 1.0, 1.0);
-            mass = 225.0;
+            mass = 256.0;
             radius = (mass / 3.1415).sqrt();
         } 
         let (heading, speed) = velocity_to_polar(x_vel, y_vel);
@@ -116,7 +116,7 @@ impl Cell {
 
     pub fn new_from_reproduction(id: i64, parent_id: i64, creation_step: i64, mass: f64, x_pos: f64, y_pos: f64, x_vel: f64, y_vel: f64, membrane_color: [u8; 4], inside_color: [u8; 4], nucleus_color: [u8; 4]) -> Self {
         let mut rng = rand::thread_rng();
-        let color_mutate_magnitude = 0.03;
+        let color_mutate_magnitude = 0.04;
         let mut radius: f64 = (mass / 3.1415).sqrt();
         let [r, g, b, a] = membrane_color;
         let (mut h, s, v, a) = rgba_to_hsva(r, g, b, a);
