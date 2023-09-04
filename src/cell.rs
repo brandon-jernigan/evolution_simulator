@@ -116,7 +116,7 @@ impl Cell {
 
     pub fn new_from_reproduction(id: i64, parent_id: i64, creation_step: i64, mass: f64, x_pos: f64, y_pos: f64, x_vel: f64, y_vel: f64, membrane_color: [u8; 4], inside_color: [u8; 4], nucleus_color: [u8; 4]) -> Self {
         let mut rng = rand::thread_rng();
-        let color_mutate_magnitude = 0.02;
+        let color_mutate_magnitude = 0.03;
         let mut radius: f64 = (mass / 3.1415).sqrt();
         let [r, g, b, a] = membrane_color;
         let (mut h, s, v, a) = rgba_to_hsva(r, g, b, a);
