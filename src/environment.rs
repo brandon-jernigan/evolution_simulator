@@ -12,26 +12,26 @@ pub struct Environment {
 }
 
 impl Environment {
-    pub fn new(width: u32, height: u32, env_seed: u32, step: u32) -> Self {
+    pub fn new(width: u32, height: u32, env_seed: u32, loop_step: i64) -> Self {
         
-        let terrain: Vec<Vec<f64>> = generate_terrain(width as usize, height as usize, env_seed, step);
+        let terrain: Vec<Vec<f64>> = generate_terrain(width as usize, height as usize, env_seed, loop_step);
         let gradient: Vec<Vec<(f64, f64)>> = calculate_gradient(&terrain);
-        let cells = vec![Cell::new(1)];    let mut cells: Vec<Cell> = Vec::with_capacity(NUM_CELLS);
+        let mut cells: Vec<Cell> = Vec::with_capacity(NUM_CELLS);
         for ii in 0..NUM_CELLS {
-            cells.push(Cell::new(ii as i32));
-        }        Self { cells, terrain, gradient }
+            cells.push(Cell::new(ii as i64, loop_step));
+        }        Self { cells, terrain, gradient}
     }
 
-    pub fn update(&mut self) {
-        update_cells(&mut self.cells, &self.terrain, &self.gradient);
+    pub fn update(&mut self, loop_step: i64) {
+        update_cells(&mut self.cells, &self.terrain, &self.gradient, loop_step);
         // Code to update terrain if needed
     }
-    pub fn update_terrain(&mut self, width: u32, height: u32, env_seed: u32, step: u32) {
-        self.terrain = generate_terrain(width as usize, height as usize, env_seed, step);
+    pub fn update_terrain(&mut self, width: u32, height: u32, env_seed: u32, loop_step: i64) {
+        self.terrain = generate_terrain(width as usize, height as usize, env_seed, loop_step);
     }
 }
 
-fn generate_terrain(width: usize, height: usize, env_seed: u32, step: u32) -> Vec<Vec<f64>> {
+fn generate_terrain(width: usize, height: usize, env_seed: u32, loop_step: i64) -> Vec<Vec<f64>> {
     let perlin = Perlin::new(env_seed);
     let step_rate: f64 = 2.0;
     let texture_frequency: f64 = 0.010; // Adjust this for smoother, wider valleys and ranges
@@ -40,7 +40,8 @@ fn generate_terrain(width: usize, height: usize, env_seed: u32, step: u32) -> Ve
     let lacunarity: f64 = 2.3; // Controls frequency increment between octaves
 
     let valley_floor: f64 = -0.4; // This is the floor level for the valleys, adjust as needed
-    let smoothing_factor: f64 = 0.3; // This adjusts how quickly the value approaches the floor
+    let smoothing_factor: f64 = 0.05; // This adjusts how quickly the value approaches the floor
+    let min_value: f64 = valley_floor + (-1.0 - valley_floor) * smoothing_factor * 1.1;
 
     let ridge_frequency: f64 = 0.004; // Frequency for the ridge or chasm lines
     let ridge_multiplier: f64 = 0.5; // How much the ridges or chasms will influence the terrain
@@ -59,7 +60,7 @@ fn generate_terrain(width: usize, height: usize, env_seed: u32, step: u32) -> Ve
                 total += perlin.get([
                     x as f64 * frequency,
                     y as f64 * frequency,
-                    step as f64 * step_rate as f64 * frequency,
+                    loop_step as f64 * step_rate as f64 * frequency,
                 ]) * amplitude;
                 fbm_max_value += amplitude;
                 amplitude *= persistence;
@@ -76,7 +77,7 @@ fn generate_terrain(width: usize, height: usize, env_seed: u32, step: u32) -> Ve
             }
             trace!("Environment::generate_terrain >> normalizing and storing");
 
-            terrain[x][y] = (total - valley_floor) / (1.0 - valley_floor);
+            terrain[x][y] = (total - min_value) / (1.0 - min_value);
         }
     }
 

@@ -9,6 +9,5 @@ pub const ENV_SEED: u32 = 0;
 pub const NUM_CELLS: usize = 3000;
 pub const TARGET_FRAME_RATE: u64 = 60;
 pub const FRAME_DUR: u64 = 1_000 / TARGET_FRAME_RATE;
-pub const COLLIDE_SPRING: f64 = -5000.0;
-pub const COLLIDE_DAMPING: f64 = 0.8;
+pub const COLLIDE_SPRING: f64 = -10.0;
 pub const FRICTION_COEFF: f64 = 0.01;

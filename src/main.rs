@@ -27,7 +27,7 @@ use constants::{ENV_SEED, ENV_STEP, FULLSCREEN, HEIGHT, LOG_LEVEL, WIDTH, FRAME_
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let start_time = Instant::now();
-    let mut step = 0;
+    let mut loop_step: i64 = 0;
     init_logging(start_time, LOG_LEVEL)?;
     info!(
         "main >>  WIDTH: {}, HEIGHT: {}, FULLSCREEN: {}, ENV_STEP: {}, ENV_SEED: {}",
@@ -44,15 +44,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let (mut ui_context, width, height) = init_sdl()?;
 
     debug!("main >> Environment::new. env_seed: {}", env_seed);
-    let mut env = Environment::new(width, height, env_seed, step);
+    let mut env = Environment::new(width, height, env_seed, loop_step);
 
     debug!("main >> Starting main loop");
 
     loop {
         let loop_start_time = SystemTime::now();
-        if ENV_STEP {
-            step += 1;
-        }
+        loop_step += 1;
         if check_escape_pressed(&mut ui_context.event_pump)? {
             debug!("main >> Escape pressed, exiting");
             break;
@@ -62,12 +60,11 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         render_current_state(&mut env, &mut ui_context.canvas)?;
 
         debug!("main >> env.update()");
-        env.update();
+        env.update(loop_step);
 
         debug!("main >> env.update_terrain");
         if ENV_STEP {
-            env.update_terrain(height, height, env_seed, step);
-            step += 1;
+            env.update_terrain(height, height, env_seed, loop_step);
         }
         let elapsed_time = loop_start_time.elapsed()
             .expect("Time went backwards")
