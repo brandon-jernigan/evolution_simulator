@@ -189,6 +189,7 @@ impl Cell {
     }
 
     pub fn update_and_check_reproduction(&mut self){
+        let mut rng = rand::thread_rng();
         if self.energy >= self.energy_capacity * 0.1 {
             self.reproducing = true;
         } else {
@@ -196,9 +197,10 @@ impl Cell {
         }
         
         if self.reproducing {
-            self.energy -= self.reproduction_cost * 0.02;
-            self.reproduction_progress += 0.02;
-            self.mass += self.reproduction_cost * 0.02;
+            let reproduction_variation = rng.gen_range(0.5..1.5);
+            self.energy -= self.reproduction_cost * 0.02 * reproduction_variation;
+            self.reproduction_progress += 0.02 * reproduction_variation;
+            self.mass += self.reproduction_cost * 0.02 * reproduction_variation;
             self.radius = (self.mass / 3.1415).sqrt();
             self.light_consumtion_efficiency = self.mass / 2000.0;
         }
