@@ -64,13 +64,15 @@ impl Cell {
     pub fn new(id: i64, loop_step: i64) -> Self {
         // Initialize a new cell
         let mut rng = rand::thread_rng();
-        let mut mass: f64 = rng.gen_range(122.0..225.0);
+        let mut mass: f64 = rng.gen_range(81.0..256.0);
         let mut radius: f64 = (mass / 3.1415).sqrt();
         let x_vel: f64 = rng.gen_range(-0.5..0.5);
         let y_vel: f64 = rng.gen_range(-0.5..0.5);
         let mut membrane_color = hsva_to_rgba(rng.gen_range(0.0..1.0), 1.0, 1.0, 1.0);
         let mut inside_color = hsva_to_rgba(rng.gen_range(0.0..1.0), 1.0, 1.0, 1.0);
         let mut nucleus_color = hsva_to_rgba(rng.gen_range(0.0..1.0), 1.0, 1.0, 1.0);
+        let light_consumtion_efficiency = mass / 2000.0;
+        let reproduction_progress = rng.gen_range(0.0..0.5);
         if id == 1 {
             membrane_color = hsva_to_rgba(0.0, 0.0, 1.0, 1.0);
             inside_color = hsva_to_rgba(0.0, 0.0, 1.0, 1.0);
@@ -102,10 +104,10 @@ impl Cell {
             energy: 100.0,
             energy_capacity: 100.0,
             energy_decay_rate: 0.01,
-            light_consumtion_efficiency: 0.05,
+            light_consumtion_efficiency,
             light_exposure: 0.0,
-            reproduction_cost: 100.0,
-            reproduction_progress: 0.0,
+            reproduction_cost: mass,
+            reproduction_progress,
             membrane_color,
             inside_color,
             nucleus_color,
@@ -114,7 +116,7 @@ impl Cell {
         }
     }
 
-    pub fn new_from_reproduction(id: i64, parent_id: i64, creation_step: i64, mass: f64, x_pos: f64, y_pos: f64, x_vel: f64, y_vel: f64, membrane_color: [u8; 4], inside_color: [u8; 4], nucleus_color: [u8; 4]) -> Self {
+    pub fn new_from_reproduction(id: i64, parent_id: i64, creation_step: i64, mass: f64, x_pos: f64, y_pos: f64, x_vel: f64, y_vel: f64, membrane_color: [u8; 4], inside_color: [u8; 4], nucleus_color: [u8; 4], reproductive_cost: f64) -> Self {
         let mut rng = rand::thread_rng();
         let color_mutate_magnitude = 0.04;
         let mut radius: f64 = (mass / 3.1415).sqrt();
@@ -131,6 +133,8 @@ impl Cell {
         h += rng.gen_range(-color_mutate_magnitude..color_mutate_magnitude);
         let mut nucleus_color = hsva_to_rgba(h, s, v, a);
         let (heading, speed) = velocity_to_polar(x_vel, y_vel);
+        let new_reproductive_cost = reproductive_cost + rng.gen_range(-1.0..1.0);
+        let light_consumtion_efficiency = mass / 2000.0;
         Self {
             id,
             parent_id,
@@ -155,9 +159,9 @@ impl Cell {
             energy: 100.0,
             energy_capacity: 100.0,
             energy_decay_rate: 0.01,
-            light_consumtion_efficiency: 0.05,
+            light_consumtion_efficiency: light_consumtion_efficiency,
             light_exposure: 0.0,
-            reproduction_cost: 100.0,
+            reproduction_cost: reproductive_cost,
             reproduction_progress: 0.0,
             membrane_color,
             inside_color,
@@ -185,7 +189,7 @@ impl Cell {
     }
 
     pub fn update_and_check_reproduction(&mut self){
-        if self.energy >= self.energy_capacity * 0.2 {
+        if self.energy >= self.energy_capacity * 0.1 {
             self.reproducing = true;
         } else {
             self.reproducing = false;
@@ -194,6 +198,9 @@ impl Cell {
         if self.reproducing {
             self.energy -= self.reproduction_cost * 0.02;
             self.reproduction_progress += 0.02;
+            self.mass += self.reproduction_cost * 0.02;
+            self.radius = (self.mass / 3.1415).sqrt();
+            self.light_consumtion_efficiency = self.mass / 2000.0;
         }
         if self.reproduction_progress >= 1.0 {
             self.reproduction_progress = 0.0;
@@ -401,11 +408,12 @@ pub fn reproduce_now(cells: &mut Vec<Cell>, loop_step: i64) {
     
     for cell in cells.iter_mut() {
         if cell.reproduce_now {
-            let child_mass = cell.mass;
+            let child_mass = cell.mass/2.0;
+            cell.mass = cell.mass/2.0;
             let (x_offset, y_offset) = generate_random_position(&mut rng, cell.radius/2.0, cell.radius/2.0);
             let child_x_pos = cell.x_pos + x_offset;
             let child_y_pos = cell.y_pos + y_offset;
-            let child_cell = Cell::new_from_reproduction(max_id + 1 as i64, cell.id, loop_step, child_mass, child_x_pos, child_y_pos, cell.x_vel, cell.y_vel, cell.membrane_color, cell.inside_color, cell.nucleus_color);
+            let child_cell = Cell::new_from_reproduction(max_id + 1 as i64, cell.id, loop_step, child_mass, child_x_pos, child_y_pos, cell.x_vel, cell.y_vel, cell.membrane_color, cell.inside_color, cell.nucleus_color, cell.reproduction_cost);
             //child_cell.print_cell_properties();
             cells_to_add.push(child_cell);
             max_id += 1;

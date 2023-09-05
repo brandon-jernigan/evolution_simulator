@@ -138,7 +138,7 @@ pub fn render_cells(
 }
 
 pub fn rbga_cell_lighting(cell: &Cell,terrain: &[Vec<f64>], color_type: &str) -> [u8; 4] {
-    let lowest_cell_brightness = 0.33;
+    let lowest_cell_brightness = 0.2;
     let (mut h, mut s, mut v, mut a) = (0.0, 0.0, 0.0, 0.0);
     if color_type == "inside"{
         (h, s, v, a) = rgba_to_hsva(

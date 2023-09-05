@@ -40,8 +40,8 @@ fn generate_terrain(width: usize, height: usize, env_seed: u32, loop_step: i64) 
     let persistence: f64 = 0.4; // Adjust this for smoother transitions
     let lacunarity: f64 = 2.3; // Controls frequency increment between octaves
 
-    let valley_floor: f64 = -0.35; // This is the floor level for the valleys, adjust as needed
-    let smoothing_factor: f64 = 0.05; // This adjusts how quickly the value approaches the floor
+    let valley_floor: f64 = -0.3; // This is the floor level for the valleys, adjust as needed
+    let smoothing_factor: f64 = 0.1; // This adjusts how quickly the value approaches the floor
     let min_value: f64 = valley_floor + (-1.0 - valley_floor) * smoothing_factor * 1.1;
 
     let ridge_frequency: f64 = 0.004; // Frequency for the ridge or chasm lines
