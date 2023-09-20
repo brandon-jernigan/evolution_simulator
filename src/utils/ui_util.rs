@@ -2,6 +2,7 @@ extern crate sdl2; // SDL2 library
 
 use crate::environment::Environment;
 use sdl2::event::Event;
+use sdl2::EventPump;
 use sdl2::render::Canvas;
 use sdl2::video::Window;
 use sdl2::gfx::primitives::DrawRenderer;
@@ -82,9 +83,11 @@ pub fn render_terrain(
         for y in 0..env.terrain[x].len() {
             let val = env.terrain[x][y];
             let rescaled_val = min_bright_val + ((val - 0.0) / (1.0 - 0.0)) * (max_bright_val - min_bright_val);
-            let color_value = (rescaled_val * color_mult) as u8; // Scale the 0-1 value to 0-255
+            //let color_value = (rescaled_val * color_mult) as u8; // Scale the 0-1 value to 0-255
+            let [r, g, b, a] = hsva_to_rgba(197.0/360.0, 0.5, rescaled_val as f32, 1.0);
 
-            canvas.set_draw_color(Color::RGB(color_value, color_value, color_value));
+
+            canvas.set_draw_color(Color::RGB(r, g, b));
 
             // Draw a single pixel at (x, y)
             canvas.draw_point(Point::new(x as i32, y as i32))?;
@@ -184,23 +187,29 @@ fn f32_color_to_sdl_color(color: [f32; 4]) -> sdl2::pixels::Color {
 }
 
 
-pub fn check_escape_pressed(event_pump: &mut sdl2::EventPump) -> Result<bool, String> {
+pub fn handle_events(event_pump: &mut EventPump, should_render: bool) -> (bool, bool) {
+    let mut new_should_render = should_render;
+    let mut should_exit = false;
+
     for event in event_pump.poll_iter() {
         match event {
             Event::Quit { .. }
-            | Event::KeyUp {
-                keycode: Some(Keycode::Escape),
+            | Event::KeyDown {
+                keycode: Some(sdl2::keyboard::Keycode::Escape),
                 ..
             } => {
-                sleep(Duration::from_millis(500));
-                return Ok(true);
+                // Handle exit logic
+                should_exit = true;
+            }
+            Event::MouseButtonDown { .. } => {
+                // Toggle rendering when mouse is clicked
+                new_should_render = !new_should_render;
             }
             _ => {}
         }
     }
-    Ok(false)
+    (new_should_render, should_exit)
 }
-
 
 pub fn hsva_to_rgba(h: f32, s: f32, v: f32, a: f32) -> [u8; 4] {
     let normalized_h = (h % 1.0 + 1.0) % 1.0;

@@ -182,13 +182,13 @@ impl Cell {
         self.update_position();
         self.handle_boundary_collision();
         self.update_gravity_gradient_sense(gradient);
-        self.update_light_exposure_sense(terrain);
         self.update_and_check_reproduction();
         self.update_health();
         self.update_energy();
         if self.id == 1 {
             self.print_cell_properties();
         }
+        self.update_light_exposure_sense(terrain);
     }
 
     pub fn update_and_check_reproduction(&mut self){
@@ -282,19 +282,35 @@ impl Cell {
         self.gravity_gradient_perpendicular_heading = gradient_perpendicular;
     }
 
-    pub fn handle_cell_collision(&mut self, cell2: &mut Cell) {
+    pub fn handle_cell_collision(&mut self, cell2: &mut Cell, terrain: &[Vec<(f64)>]) {
         let dx = self.x_pos - cell2.x_pos;
         let dy = self.y_pos - cell2.y_pos;
+        let area_overlap: f64;
         let mut distance_squared = dx * dx + dy * dy;
         if distance_squared == 0.0 {
             distance_squared = 0.1;
         }
         
         let min_dist = (self.radius + cell2.radius) as f64;
-    
         if distance_squared < min_dist * min_dist {
             let distance = distance_squared.sqrt();
             let overlap = min_dist - distance;
+            let small_rad = f64::min(self.radius, cell2.radius);
+            let big_rad = f64::max(self.radius, cell2.radius);
+
+            if (distance > big_rad - small_rad) && (distance < big_rad + small_rad) {
+                area_overlap = 3.1415 * (small_rad * (big_rad + small_rad - distance)/(2.0*small_rad)).powf(2.0);
+            } else if distance <= big_rad - small_rad{
+                area_overlap = 3.1415 * small_rad * small_rad;
+            } else {
+                area_overlap = 0.0;
+            }
+
+            let self_percent_overlap = area_overlap / (3.1415 * self.radius * self.radius);
+            let cell2_percent_overlap = area_overlap / (3.1415 * cell2.radius * cell2.radius);
+
+            self.light_exposure = self.light_exposure * (1.0 - self_percent_overlap);
+            cell2.light_exposure = cell2.light_exposure * (1.0 - self_percent_overlap);
 
             // normalize dx and dy
             let nx = dx / distance;
@@ -345,6 +361,8 @@ impl Cell {
 
         self.x_pos = self.x_pos + self.x_vel;
         self.y_pos = self.y_pos + self.y_vel;
+
+
     }
     
 
@@ -384,18 +402,17 @@ pub fn update_cells(cells: &mut Vec<Cell>, terrain: &[Vec<f64>], gradient: &[Vec
     reproduce_now(cells, loop_step);
     remove_dead_cells(cells);
     let len = cells.len();
-    for cell in cells.iter_mut() {
-        cell.update(terrain, gradient, loop_step);
-        num_cells_updated += 1;
-    }
     for i in 0..len {
         for j in (i + 1)..len {
             let (left, right) = cells.split_at_mut(i + 1);
             let cell1 = &mut left[i];
             let cell2 = &mut right[j - i - 1];
-            cell1.handle_cell_collision(cell2);        }
+            cell1.handle_cell_collision(cell2, terrain);        }
     }
-    
+    for cell in cells.iter_mut() {
+        cell.update(terrain, gradient, loop_step);
+        num_cells_updated += 1;
+    }    
     println!("Number of cells updated: {}", num_cells_updated);
     println!();
 }

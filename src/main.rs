@@ -20,7 +20,7 @@ mod utils;
 
 // Functions from your internal modules
 use crate::utils::log_util::init_logging;
-use crate::utils::ui_util::{check_escape_pressed, init_sdl, render_current_state}; // Add this line
+use crate::utils::ui_util::{handle_events, init_sdl, render_current_state}; // Add this line
 use environment::Environment;
 
 use constants::{ENV_SEED, ENV_STEP, FULLSCREEN, HEIGHT, LOG_LEVEL, WIDTH, FRAME_DUR, TARGET_FRAME_RATE, NUM_CELLS};
@@ -39,6 +39,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     } else {
         ENV_SEED
     };
+    let mut should_render = true;
 
     debug!("main >> init_sdl");
     let (mut ui_context, width, height) = init_sdl()?;
@@ -51,13 +52,24 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     loop {
         let loop_start_time = SystemTime::now();
         loop_step += 1;
-        if check_escape_pressed(&mut ui_context.event_pump)? {
-            debug!("main >> Escape pressed, exiting");
+        let (new_should_render, should_exit) = handle_events(&mut ui_context.event_pump, should_render);
+        should_render = new_should_render;
+        if should_exit {
+            debug!("main >> Escape pressed or window closed, exiting");
             break;
         }
 
-        debug!("main >> render_current_state");
-        render_current_state(&mut env, &mut ui_context.canvas)?;
+        if should_render {
+            debug!("main >> render_current_state");
+            render_current_state(&mut env, &mut ui_context.canvas)?;
+        } else {
+            let canvas = &mut ui_context.canvas;
+
+            canvas.set_draw_color(sdl2::pixels::Color::RGB(255, 255, 255));
+            canvas.draw_line((10, 10), (10, 30)).unwrap();
+            canvas.draw_line((20, 10), (20, 30)).unwrap();
+            canvas.present();
+        }
 
         debug!("main >> env.update()");
         env.update(loop_step);
