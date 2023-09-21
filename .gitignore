@@ -1,5 +1,5 @@
 /target
 frames/*
 videos/*
-debug/
-logs/
+debug/*
+logs/*
