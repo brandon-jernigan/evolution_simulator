@@ -12,3 +12,4 @@ pub const FRAME_DUR: u64 = 1_000 / TARGET_FRAME_RATE;
 pub const COLLIDE_SPRING: f64 = -10.0;
 pub const POST_REPRODUCTION_COLLIDE_SPRING: f64 = -0.2;
 pub const FRICTION_COEFF: f64 = 0.01;
+pub const STEPS_PER_RENDER: i64 = 1;

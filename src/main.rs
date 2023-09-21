@@ -20,10 +20,10 @@ mod utils;
 
 // Functions from your internal modules
 use crate::utils::log_util::init_logging;
-use crate::utils::ui_util::{handle_events, init_sdl, render_current_state}; // Add this line
+use crate::utils::ui_util::{handle_events, init_sdl, render_current_state, capture_png}; // Add this line
 use environment::Environment;
 
-use constants::{ENV_SEED, ENV_STEP, FULLSCREEN, HEIGHT, LOG_LEVEL, WIDTH, FRAME_DUR, TARGET_FRAME_RATE, NUM_CELLS};
+use constants::{ENV_SEED, ENV_STEP, FULLSCREEN, HEIGHT, LOG_LEVEL, WIDTH, FRAME_DUR, TARGET_FRAME_RATE, NUM_CELLS, STEPS_PER_RENDER};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let start_time = Instant::now();
@@ -59,9 +59,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             break;
         }
 
-        if should_render {
+        if should_render && loop_step % STEPS_PER_RENDER == 0 {
             debug!("main >> render_current_state");
             render_current_state(&mut env, &mut ui_context.canvas)?;
+            let filename = format!("frames/frame_{:06}.png", loop_step / STEPS_PER_RENDER);
+            capture_png(&ui_context.canvas, &filename).unwrap_or_else(|e| {
+                error!("Failed to capture PNG: {}", e);
+            });
+
         } else {
             let canvas = &mut ui_context.canvas;
 

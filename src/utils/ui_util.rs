@@ -5,6 +5,10 @@ use sdl2::event::Event;
 use sdl2::EventPump;
 use sdl2::render::Canvas;
 use sdl2::video::Window;
+use image::RgbaImage;
+use image::codecs::png::PngEncoder;
+use image::ColorType;
+use std::io::BufWriter;
 use sdl2::gfx::primitives::DrawRenderer;
 use sdl2::keyboard::Keycode;
 use sdl2::pixels::Color;
@@ -12,6 +16,8 @@ use sdl2::rect::Point;
 use std::thread::sleep;
 use std::time::Duration;
 
+use env_logger::Builder;
+use log::{debug, error, info, trace, warn, LevelFilter};
 use crate::cell::Cell;
 use crate::constants::{ENV_SEED, ENV_STEP, FULLSCREEN, HEIGHT, LOG_LEVEL, WIDTH};
 
@@ -22,14 +28,17 @@ pub struct UIContext {
 }
 
 pub fn init_sdl() -> Result<(UIContext, u32, u32), String> {
+    debug!("ui_utils::init_sdl Initializing SDL...");
     let sdl_context = sdl2::init()?;
+    debug!("ui_utils::init_sdl Initializing video subsystem...");
     let video_subsystem = sdl_context.video()?;
+    debug!("ui_utils::init_sdl Initializing Window...");
     let mut window = video_subsystem
         .window("🧬 Evolution Simulator", WIDTH, HEIGHT)
         .position_centered()
         .build()
         .map_err(|e| e.to_string())?;
-
+    debug!("ui_utils::init_sdl Initializing set height and width...");
     let (actual_width, actual_height) = if FULLSCREEN {
         window
             .set_fullscreen(sdl2::video::FullscreenType::Desktop)
@@ -40,9 +49,11 @@ pub fn init_sdl() -> Result<(UIContext, u32, u32), String> {
     } else {
         (WIDTH, HEIGHT)
     };
+    debug!("ui_utils::init_sdl canvas...");
 
     let canvas = window.into_canvas().build().map_err(|e| e.to_string())?;
 
+    debug!("ui_utils::init_sdl event pump...");
     let event_pump = sdl_context.event_pump()?;
 
     Ok((
@@ -96,6 +107,32 @@ pub fn render_terrain(
     Ok(())
 }
 
+pub fn capture_png(canvas: &Canvas<Window>, filename: &str) -> Result<(), String> {
+    let surface = canvas.read_pixels(None, sdl2::pixels::PixelFormatEnum::ABGR8888)
+        .map_err(|e| e.to_string())?;
+    let (width, height) = canvas.window().size();
+    let mut img_buffer = RgbaImage::new(width, height);
+
+    for y in 0..height {
+        for x in 0..width {
+            let offset = (y * width + x) as usize * 4;
+            let pixel = [
+                surface[offset],
+                surface[offset + 1],
+                surface[offset + 2],
+                surface[offset + 3]
+            ];
+            img_buffer.put_pixel(x, y, image::Rgba(pixel));
+        }
+    }
+
+    let file = BufWriter::new(std::fs::File::create(filename).map_err(|e| e.to_string())?);
+    let encoder = PngEncoder::new(file);
+    encoder.encode(&img_buffer, width, height, ColorType::Rgba8).map_err(|e| e.to_string())?;
+
+    Ok(())
+}
+
 pub fn render_cells(
     cells: &[Cell],
     terrain: &[Vec<f64>],
@@ -139,6 +176,8 @@ pub fn render_cells(
     }
     Ok(())
 }
+
+
 
 pub fn rbga_cell_lighting(cell: &Cell,terrain: &[Vec<f64>], color_type: &str) -> [u8; 4] {
     let lowest_cell_brightness = 0.2;
