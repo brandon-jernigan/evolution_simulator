@@ -242,7 +242,7 @@ pub fn handle_events(event_pump: &mut EventPump, should_render: bool) -> (bool, 
             }
             Event::MouseButtonDown { .. } => {
                 // Toggle rendering when mouse is clicked
-                new_should_render = !new_should_render;
+                //new_should_render = !new_should_render;
             }
             _ => {}
         }

@@ -1141,3 +1141,88 @@
 2023-09-23 04:09:00 [0215.821959s | Δ00.000080s] [DEBUG] - main >> env.update()
 2023-09-23 04:09:00 [0215.825947s | Δ00.003988s] [DEBUG] - main >> env.update_terrain
 2023-09-23 04:09:00 [0215.825998s | Δ00.000051s] [DEBUG] - main >> render_current_state
+2023-09-23 04:09:01 [0216.525662s | Δ00.699664s] [ERROR] - Failed to capture PNG: No such file or directory (os error 2)
+2023-09-23 04:09:01 [0216.525743s | Δ00.000081s] [DEBUG] - main >> env.update()
+2023-09-23 04:09:01 [0216.529840s | Δ00.004097s] [DEBUG] - main >> env.update_terrain
+2023-09-23 04:09:01 [0216.529891s | Δ00.000051s] [DEBUG] - main >> render_current_state
+2023-09-23 04:09:01 [0217.239958s | Δ00.710067s] [ERROR] - Failed to capture PNG: No such file or directory (os error 2)
+2023-09-23 04:09:01 [0217.240027s | Δ00.000069s] [DEBUG] - main >> env.update()
+2023-09-23 04:09:02 [0217.244207s | Δ00.004180s] [DEBUG] - main >> env.update_terrain
+2023-09-23 04:09:02 [0217.244283s | Δ00.000076s] [DEBUG] - main >> render_current_state
+2023-09-23 04:09:02 [0217.964862s | Δ00.720579s] [ERROR] - Failed to capture PNG: No such file or directory (os error 2)
+2023-09-23 04:09:02 [0217.964944s | Δ00.000082s] [DEBUG] - main >> env.update()
+2023-09-23 04:09:02 [0217.969245s | Δ00.004302s] [DEBUG] - main >> env.update_terrain
+2023-09-23 04:09:02 [0217.969696s | Δ00.000451s] [DEBUG] - main >> render_current_state
+2023-09-23 04:09:03 [0218.674193s | Δ00.704497s] [ERROR] - Failed to capture PNG: No such file or directory (os error 2)
+2023-09-23 04:09:03 [0218.674354s | Δ00.000161s] [DEBUG] - main >> env.update()
+2023-09-23 04:09:03 [0218.678988s | Δ00.004634s] [DEBUG] - main >> env.update_terrain
+2023-09-23 04:09:03 [0218.679095s | Δ00.000107s] [DEBUG] - main >> render_current_state
+2023-09-23 04:09:04 [0219.396399s | Δ00.717304s] [ERROR] - Failed to capture PNG: No such file or directory (os error 2)
+2023-09-23 04:09:04 [0219.396548s | Δ00.000150s] [DEBUG] - main >> env.update()
+2023-09-23 04:09:04 [0219.401390s | Δ00.004841s] [DEBUG] - main >> env.update_terrain
+2023-09-23 04:09:04 [0219.401498s | Δ00.000108s] [DEBUG] - main >> render_current_state
+2023-09-23 04:09:04 [0220.155770s | Δ00.754272s] [ERROR] - Failed to capture PNG: No such file or directory (os error 2)
+2023-09-23 04:09:04 [0220.155911s | Δ00.000142s] [DEBUG] - main >> env.update()
+2023-09-23 04:09:04 [0220.160892s | Δ00.004981s] [DEBUG] - main >> env.update_terrain
+2023-09-23 04:09:04 [0220.160999s | Δ00.000107s] [DEBUG] - main >> render_current_state
+2023-09-23 04:09:05 [0220.882552s | Δ00.721553s] [ERROR] - Failed to capture PNG: No such file or directory (os error 2)
+2023-09-23 04:09:05 [0220.882740s | Δ00.000188s] [DEBUG] - main >> env.update()
+2023-09-23 04:09:05 [0220.888562s | Δ00.005822s] [DEBUG] - main >> env.update_terrain
+2023-09-23 04:09:05 [0220.889036s | Δ00.000474s] [DEBUG] - main >> render_current_state
+2023-09-23 04:09:06 [0221.619471s | Δ00.730435s] [ERROR] - Failed to capture PNG: No such file or directory (os error 2)
+2023-09-23 04:09:06 [0221.619634s | Δ00.000163s] [DEBUG] - main >> env.update()
+2023-09-23 04:09:06 [0221.624835s | Δ00.005201s] [DEBUG] - main >> env.update_terrain
+2023-09-23 04:09:06 [0221.624944s | Δ00.000109s] [DEBUG] - main >> render_current_state
+2023-09-23 04:09:07 [0222.349493s | Δ00.724549s] [ERROR] - Failed to capture PNG: No such file or directory (os error 2)
+2023-09-23 04:09:07 [0222.349660s | Δ00.000167s] [DEBUG] - main >> env.update()
+2023-09-23 04:09:07 [0222.354901s | Δ00.005241s] [DEBUG] - main >> env.update_terrain
+2023-09-23 04:09:07 [0222.355013s | Δ00.000112s] [DEBUG] - main >> render_current_state
+2023-09-23 04:09:07 [0223.060712s | Δ00.705699s] [ERROR] - Failed to capture PNG: No such file or directory (os error 2)
+2023-09-23 04:09:07 [0223.060871s | Δ00.000158s] [DEBUG] - main >> env.update()
+2023-09-23 04:09:07 [0223.066457s | Δ00.005586s] [DEBUG] - main >> env.update_terrain
+2023-09-23 04:09:07 [0223.070134s | Δ00.003677s] [DEBUG] - main >> render_current_state
+2023-09-23 04:09:08 [0223.936386s | Δ00.866252s] [ERROR] - Failed to capture PNG: No such file or directory (os error 2)
+2023-09-23 04:09:08 [0223.936468s | Δ00.000082s] [DEBUG] - main >> env.update()
+2023-09-23 04:09:08 [0223.942161s | Δ00.005693s] [DEBUG] - main >> env.update_terrain
+2023-09-23 04:09:08 [0223.943471s | Δ00.001310s] [DEBUG] - main >> render_current_state
+2023-09-23 04:09:09 [0224.729702s | Δ00.786231s] [ERROR] - Failed to capture PNG: No such file or directory (os error 2)
+2023-09-23 04:09:09 [0224.729948s | Δ00.000246s] [DEBUG] - main >> env.update()
+2023-09-23 04:09:09 [0224.735614s | Δ00.005666s] [DEBUG] - main >> env.update_terrain
+2023-09-23 04:09:09 [0224.735768s | Δ00.000154s] [DEBUG] - main >> render_current_state
+2023-09-23 04:09:10 [0225.453337s | Δ00.717569s] [ERROR] - Failed to capture PNG: No such file or directory (os error 2)
+2023-09-23 04:09:10 [0225.453595s | Δ00.000258s] [DEBUG] - main >> env.update()
+2023-09-23 04:09:10 [0225.459391s | Δ00.005795s] [DEBUG] - main >> env.update_terrain
+2023-09-23 04:09:10 [0225.459518s | Δ00.000127s] [DEBUG] - main >> render_current_state
+2023-09-23 04:09:10 [0226.176994s | Δ00.717476s] [ERROR] - Failed to capture PNG: No such file or directory (os error 2)
+2023-09-23 04:09:10 [0226.177256s | Δ00.000262s] [DEBUG] - main >> env.update()
+2023-09-23 04:09:10 [0226.183091s | Δ00.005835s] [DEBUG] - main >> env.update_terrain
+2023-09-23 04:09:10 [0226.183205s | Δ00.000115s] [DEBUG] - main >> render_current_state
+2023-09-23 04:09:11 [0226.904761s | Δ00.721555s] [ERROR] - Failed to capture PNG: No such file or directory (os error 2)
+2023-09-23 04:09:11 [0226.905028s | Δ00.000268s] [DEBUG] - main >> env.update()
+2023-09-23 04:09:11 [0226.910884s | Δ00.005856s] [DEBUG] - main >> env.update_terrain
+2023-09-23 04:09:11 [0226.910976s | Δ00.000091s] [DEBUG] - main >> render_current_state
+2023-09-23 04:09:12 [0227.632120s | Δ00.721145s] [ERROR] - Failed to capture PNG: No such file or directory (os error 2)
+2023-09-23 04:09:12 [0227.632390s | Δ00.000269s] [DEBUG] - main >> env.update()
+2023-09-23 04:09:12 [0227.638352s | Δ00.005963s] [DEBUG] - main >> env.update_terrain
+2023-09-23 04:09:12 [0227.638443s | Δ00.000091s] [DEBUG] - main >> render_current_state
+2023-09-23 04:09:13 [0228.370418s | Δ00.731974s] [ERROR] - Failed to capture PNG: No such file or directory (os error 2)
+2023-09-23 04:09:13 [0228.370714s | Δ00.000296s] [DEBUG] - main >> env.update()
+2023-09-23 04:09:13 [0228.376835s | Δ00.006121s] [DEBUG] - main >> env.update_terrain
+2023-09-23 04:09:13 [0228.376949s | Δ00.000114s] [DEBUG] - main >> render_current_state
+2023-09-23 04:09:13 [0229.103411s | Δ00.726462s] [ERROR] - Failed to capture PNG: No such file or directory (os error 2)
+2023-09-23 04:09:13 [0229.103483s | Δ00.000072s] [DEBUG] - main >> env.update()
+2023-09-23 04:09:13 [0229.109700s | Δ00.006218s] [DEBUG] - main >> env.update_terrain
+2023-09-23 04:09:13 [0229.109755s | Δ00.000054s] [DEBUG] - main >> render_current_state
+2023-09-23 04:09:14 [0229.880963s | Δ00.771208s] [ERROR] - Failed to capture PNG: No such file or directory (os error 2)
+2023-09-23 04:09:14 [0229.881041s | Δ00.000078s] [DEBUG] - main >> env.update()
+2023-09-23 04:09:14 [0229.887324s | Δ00.006283s] [DEBUG] - main >> env.update_terrain
+2023-09-23 04:09:14 [0229.887375s | Δ00.000051s] [DEBUG] - main >> render_current_state
+2023-09-23 04:09:15 [0230.615004s | Δ00.727629s] [ERROR] - Failed to capture PNG: No such file or directory (os error 2)
+2023-09-23 04:09:15 [0230.615246s | Δ00.000242s] [DEBUG] - main >> env.update()
+2023-09-23 04:09:15 [0230.621677s | Δ00.006431s] [DEBUG] - main >> env.update_terrain
+2023-09-23 04:09:15 [0230.621806s | Δ00.000129s] [DEBUG] - main >> render_current_state
+2023-09-23 04:09:16 [0231.382889s | Δ00.761082s] [ERROR] - Failed to capture PNG: No such file or directory (os error 2)
+2023-09-23 04:09:16 [0231.383501s | Δ00.000612s] [DEBUG] - main >> env.update()
+2023-09-23 04:09:16 [0231.390129s | Δ00.006628s] [DEBUG] - main >> env.update_terrain
+2023-09-23 04:09:16 [0231.391767s | Δ00.001638s] [DEBUG] - main >> Escape pressed or window closed, exiting
+2023-09-23 04:09:16 [0231.391943s | Δ00.000176s] [DEBUG] - main >> Exiting main loop
