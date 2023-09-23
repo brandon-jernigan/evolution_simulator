@@ -62,7 +62,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         if should_render && loop_step % STEPS_PER_RENDER == 0 {
             debug!("main >> render_current_state");
             render_current_state(&mut env, &mut ui_context.canvas)?;
-            let filename = format!("/media/volumes/sdb/evolution_simulator/frames/frame_{:06}.png", loop_step / STEPS_PER_RENDER);
+            let filename = format!("/media/volume/sdb/evolution_simulator/frames/frame_{:06}.png", loop_step / STEPS_PER_RENDER);
             capture_png(&ui_context.canvas, &filename).unwrap_or_else(|e| {
                 error!("Failed to capture PNG: {}", e);
             });
