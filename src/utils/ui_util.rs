@@ -52,12 +52,9 @@ pub fn init_sdl() -> Result<(UIContext, u32, u32), String> {
         (WIDTH, HEIGHT)
     };
 
-    window.set_size(WIDTH * 2, HEIGHT * 2)?;
-
     debug!("ui_utils::init_sdl canvas...");
 
     let mut canvas = window.into_canvas().build().map_err(|e| e.to_string())?;
-    canvas.set_scale(2.0, 2.0)?;
 
     debug!("ui_utils::init_sdl event pump...");
     let event_pump = sdl_context.event_pump()?;
