@@ -1,8 +1,8 @@
 use log::{debug, error, info, trace, warn, LevelFilter};
 
 pub const LOG_LEVEL: LevelFilter = LevelFilter::Debug;
-pub const WIDTH: u32 = 1280;
-pub const HEIGHT: u32 = 720;
+pub const WIDTH: u32 = 1280*2;
+pub const HEIGHT: u32 = 720*2;
 pub const FULLSCREEN: bool = false;
 pub const ENV_STEP: bool = false;
 pub const ENV_SEED: u32 = 0;

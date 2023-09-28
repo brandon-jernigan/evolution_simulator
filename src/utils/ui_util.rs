@@ -39,6 +39,8 @@ pub fn init_sdl() -> Result<(UIContext, u32, u32), String> {
         .build()
         .map_err(|e| e.to_string())?;
     debug!("ui_utils::init_sdl Initializing set height and width...");
+
+
     let (actual_width, actual_height) = if FULLSCREEN {
         window
             .set_fullscreen(sdl2::video::FullscreenType::Desktop)
@@ -49,6 +51,9 @@ pub fn init_sdl() -> Result<(UIContext, u32, u32), String> {
     } else {
         (WIDTH, HEIGHT)
     };
+
+    window.set_size(WIDTH * 2, HEIGHT * 2)?;
+
     debug!("ui_utils::init_sdl canvas...");
 
     let mut canvas = window.into_canvas().build().map_err(|e| e.to_string())?;
