@@ -134,7 +134,7 @@ impl Cell {
         let mut nucleus_color = hsva_to_rgba(h, s, v, a);
         let (heading, speed) = velocity_to_polar(x_vel, y_vel);
         let mut new_reproductive_cost = 0.0;
-        while new_reproductive_cost < 25.0 {
+        while new_reproductive_cost < 36.0 {
             new_reproductive_cost = reproductive_cost + rng.gen_range(-2.0..2.0);
         }
         let light_consumtion_efficiency = mass / 2000.0;
