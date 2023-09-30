@@ -86,7 +86,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
         debug!("main >> env.update()");
         let mut amplitude_sequence = env.update(loop_step);
-        amplitude_sequence = generate_loud_tone();
+        //amplitude_sequence = generate_loud_tone();
         for (i, item) in amplitude_sequence.iter().enumerate() {
             println!("t:{} A:{}", i, item);
         }
@@ -103,6 +103,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         if elapsed_time < FRAME_DUR {
             sleep(Duration::from_millis(FRAME_DUR - elapsed_time));
         }
+        println!("loop_step: {} elapsed_time: {}ms fps: {}", loop_step, elapsed_time, 1000.0 / elapsed_time as f64)
     }
 
     debug!("main >> Exiting main loop");

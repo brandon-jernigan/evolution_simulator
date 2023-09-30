@@ -198,7 +198,7 @@ impl Cell {
     }
     pub fn cell_freq(&mut self) -> f32{
         let base_frequency = 440.0;
-        let freq = base_frequency * (self.x_acc * self.x_acc + self.y_acc * self.y_acc).sqrt() * self.mass;
+        let freq = base_frequency * self.mass;
         return freq as f32;
     }
 
@@ -341,10 +341,10 @@ impl Cell {
             let ax2 = force / cell2.mass as f64;
             let ay2 = force / cell2.mass as f64;
 
-            self.x_acc -= ax1 * nx;
-            self.y_acc -= ax1 * nx;
-            cell2.x_acc += ax2 * nx;
-            cell2.y_acc += ay2 * ny;
+            // self.x_acc -= ax1 * nx;
+            // self.y_acc -= ax1 * nx;
+            // cell2.x_acc += ax2 * nx;
+            // cell2.y_acc += ay2 * ny;
 
             self.x_vel -= ax1 * nx;
             self.y_vel -= ay1 * ny;
@@ -357,8 +357,8 @@ impl Cell {
         // Assume self.x_pos and self.y_pos are usize for indexing into the gradient
         let (dx, dy) = gradient[self.x_pos.round() as usize][self.y_pos.round() as usize];
 
-        self.x_acc += dx;
-        self.y_acc += dy;
+        //self.x_acc += dx;
+        //self.y_acc += dy;
     
         // Update velocities
         self.x_vel += dx;
@@ -418,12 +418,12 @@ impl Cell {
 // Function to update cells in parallel
 pub fn update_cells(cells: &mut Vec<Cell>, terrain: &[Vec<f64>], gradient: &[Vec<(f64, f64)>], loop_step: i64) -> Vec<f32> {
     let mut num_cells_updated = 0;
-    let sample_rate = 44100;
-    let samples_per_frame = sample_rate / TARGET_FRAME_RATE;
-    let mut amplitude_sequence = vec![0.0; samples_per_frame as usize];
-    let mut amplitude_mult = 0.001;
+    // let sample_rate = 44100;
+    // let samples_per_frame = sample_rate / TARGET_FRAME_RATE;
+    // let mut amplitude_sequence = vec![0.0; samples_per_frame as usize];
+    // let mut amplitude_mult = 0.001;
 
-    reproduce_now(cells, loop_step);
+    let amplitude_sequence =reproduce_now(cells, loop_step);
     remove_dead_cells(cells);
     let len = cells.len();
     for i in 0..len {
@@ -431,22 +431,26 @@ pub fn update_cells(cells: &mut Vec<Cell>, terrain: &[Vec<f64>], gradient: &[Vec
             let (left, right) = cells.split_at_mut(i + 1);
             let cell1 = &mut left[i];
             let cell2 = &mut right[j - i - 1];
-            cell1.x_acc = 0.0;
-            cell1.y_acc = 0.0;
-            cell2.x_acc = 0.0;
-            cell2.y_acc = 0.0;
             cell1.handle_cell_collision(cell2, terrain);        }
     }
     for cell in cells.iter_mut() {
         cell.update(terrain, gradient, loop_step);
-        if cell.id == 1 {
+        // if cell.id == 1 {
                 
-            for i in 0..samples_per_frame {
-                let t = i as f32 / sample_rate as f32;  // time in seconds
-                let sample_value = amplitude_mult * f32::sin(2.0 * std::f32::consts::PI * cell.cell_freq() * t);
-                amplitude_sequence[i as usize] += sample_value.abs();
-            }
-        }
+        //     for i in 0..samples_per_frame {
+        //         let t = i as f32 / sample_rate as f32;  // time in seconds
+        //         let sample_value = amplitude_mult * f32::sin(2.0 * std::f32::consts::PI * cell.cell_freq() * t);
+        //         amplitude_sequence[i as usize] += sample_value.abs();
+        //     }
+        // } else {
+        //     for i in 0..samples_per_frame {
+        //         let t = i as f32 / sample_rate as f32;  // time in seconds
+        //         let sample_value = amplitude_mult * f32::sin(2.0 * std::f32::consts::PI * cell.cell_freq() * t);
+        //         amplitude_sequence[i as usize] += sample_value.abs();
+        //     }
+        // }
+        // cell.x_acc = 0.0;
+        // cell.y_acc = 0.0;
         num_cells_updated += 1;
     }    
     println!("Number of cells updated: {}", num_cells_updated);
@@ -455,7 +459,12 @@ pub fn update_cells(cells: &mut Vec<Cell>, terrain: &[Vec<f64>], gradient: &[Vec
     return amplitude_sequence;
 }
 
-pub fn reproduce_now(cells: &mut Vec<Cell>, loop_step: i64) {
+pub fn reproduce_now(cells: &mut Vec<Cell>, loop_step: i64) -> Vec<f32> {
+    let sample_rate = 44100;
+    let samples_per_frame = sample_rate / TARGET_FRAME_RATE;
+    let mut amplitude_sequence = vec![0.0; samples_per_frame as usize];
+    let mut amplitude_mult = 0.001;
+
     let mut rng = rand::thread_rng();  // Not used yet
     let mut max_id = 0;
     let mut cells_to_add: Vec<Cell> = Vec::new();
@@ -478,12 +487,36 @@ pub fn reproduce_now(cells: &mut Vec<Cell>, loop_step: i64) {
             cells_to_add.push(child_cell);
             max_id += 1;
             // Reset the flag
+            if cell.id == 1 {
+                
+                for i in 0..samples_per_frame {
+                    let t = i as f32 / sample_rate as f32;  // time in seconds
+                    let sample_value = amplitude_mult * f32::sin(2.0 * std::f32::consts::PI * cell.cell_freq() * t);
+                    amplitude_sequence[i as usize] += sample_value.abs();
+                }
+            } else {
+                for i in 0..samples_per_frame {
+                    let t = i as f32 / sample_rate as f32;  // time in seconds
+                    let frequency = cell.cell_freq();  // get the frequency from the cell
+                    let sample_value = if (frequency * t) % 1.0 < 0.5 {
+                        amplitude_mult
+                    } else {
+                        -amplitude_mult
+                    };
+                    amplitude_sequence[i as usize] += sample_value;
+                }
+            }
+            cell.x_acc = 0.0;
+            cell.y_acc = 0.0;
             cell.reproduce_now = false;
         }
     }
     
     // Append the new cells to the original list
     cells.append(&mut cells_to_add);
+
+    //normalize_amplitude(&mut amplitude_sequence);
+    return amplitude_sequence;
 }
 
 pub fn remove_dead_cells(cells: &mut Vec<Cell>) {
@@ -499,14 +532,17 @@ pub fn remove_dead_cells(cells: &mut Vec<Cell>) {
 }
 
 pub fn normalize_amplitude(sequence: &mut Vec<f32>) {
-    // Find the maximum value
-    let max_val = sequence
-        .iter()
-        .cloned()
-        .fold(f32::MIN, f32::max);
-
-    // Normalize each value
-    for val in sequence.iter_mut() {
-        *val /= max_val;
+    let min_val = sequence.iter().cloned().fold(f32::MAX, f32::min);
+    let max_val = sequence.iter().cloned().fold(f32::MIN, f32::max);
+    
+    // Avoid division by zero
+    if max_val - min_val != 0.0 {
+        let range = max_val - min_val;
+        let mid = (max_val + min_val) / 2.0;
+        
+        // Normalize and shift each value
+        for val in sequence.iter_mut() {
+            *val = 2.0 * (*val - mid) / range;
+        }
     }
 }
