@@ -13,3 +13,4 @@ pub const COLLIDE_SPRING: f64 = -7.5;
 pub const POST_REPRODUCTION_COLLIDE_SPRING: f64 = -0.4;
 pub const FRICTION_COEFF: f64 = 0.075;
 pub const STEPS_PER_RENDER: i64 = 1;
+pub const PI : f64 = 3.14159265358;

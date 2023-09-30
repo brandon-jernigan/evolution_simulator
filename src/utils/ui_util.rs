@@ -5,6 +5,7 @@ use sdl2::event::Event;
 use sdl2::EventPump;
 use sdl2::render::Canvas;
 use sdl2::video::Window;
+use sdl2::audio::{AudioCallback, AudioSpecDesired};
 use image::RgbaImage;
 use image::codecs::png::PngEncoder;
 use image::ColorType;
@@ -19,12 +20,13 @@ use std::time::Duration;
 use env_logger::Builder;
 use log::{debug, error, info, trace, warn, LevelFilter};
 use crate::cell::Cell;
-use crate::constants::{ENV_SEED, ENV_STEP, FULLSCREEN, HEIGHT, LOG_LEVEL, WIDTH};
+use crate::constants::{ENV_SEED, ENV_STEP, FULLSCREEN, HEIGHT, LOG_LEVEL, WIDTH, PI};
 
 pub struct UIContext {
     pub sdl_context: sdl2::Sdl,
     pub event_pump: sdl2::EventPump,
     pub canvas: sdl2::render::Canvas<sdl2::video::Window>,
+    pub audio_subsystem: sdl2::AudioSubsystem,
 }
 
 pub fn init_sdl() -> Result<(UIContext, u32, u32), String> {
@@ -32,6 +34,14 @@ pub fn init_sdl() -> Result<(UIContext, u32, u32), String> {
     let sdl_context = sdl2::init()?;
     debug!("ui_utils::init_sdl Initializing video subsystem...");
     let video_subsystem = sdl_context.video()?;
+    debug!("ui_utils::init_sdl Initializing audio subsystem...");
+    let audio_subsystem = sdl_context.audio().unwrap();
+    debug!("ui_utils::init_sdl Initializing audio spec...");
+    let desired_spec = AudioSpecDesired {
+        freq: Some(44100),  // or 48000, or another standard rate
+        channels: Some(1),  // mono output
+        samples: None       // default sample size
+    };
     debug!("ui_utils::init_sdl Initializing Window...");
     let mut window = video_subsystem
         .window("🧬 Evolution Simulator", WIDTH, HEIGHT)
@@ -64,6 +74,7 @@ pub fn init_sdl() -> Result<(UIContext, u32, u32), String> {
             sdl_context,
             event_pump,
             canvas,
+            audio_subsystem,
         },
         actual_width,
         actual_height,
@@ -305,4 +316,16 @@ pub fn rgba_to_hsva(r: u8, g: u8, b: u8, a: u8) -> (f32, f32, f32, f32) {
     let a = a as f32 / 255.0;
 
     (h, s, v, a)
+}
+
+pub fn generate_loud_tone() -> Vec<f32> {
+    let num_samples = (44100 as f32 * 1.0) as usize;
+    let mut amplitude_sequence = vec![0.0; num_samples];
+
+    for i in 0..num_samples {
+        let t = i as f32 / 44100 as f32;  // time in seconds
+        amplitude_sequence[i] = 0.9 * f32::sin(2.0 * std::f32::consts::PI * 440.0 * t);  // 0.9 to make it loud but not clipping
+    }
+
+    amplitude_sequence
 }

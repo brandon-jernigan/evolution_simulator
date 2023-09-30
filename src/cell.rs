@@ -6,7 +6,7 @@ use rand_distr::{Distribution, Normal};
 use rayon::prelude::*;
 use std::time::{Duration, SystemTime};
 
-use crate::constants::{ENV_SEED, ENV_STEP, FULLSCREEN, HEIGHT, LOG_LEVEL, WIDTH, NUM_CELLS, FRAME_DUR, COLLIDE_SPRING, POST_REPRODUCTION_COLLIDE_SPRING, FRICTION_COEFF};
+use crate::constants::{ENV_SEED, ENV_STEP, FULLSCREEN, HEIGHT, LOG_LEVEL, WIDTH, NUM_CELLS, TARGET_FRAME_RATE, FRAME_DUR, COLLIDE_SPRING, POST_REPRODUCTION_COLLIDE_SPRING, FRICTION_COEFF, PI};
 use crate::utils::ui_util::{hsva_to_rgba, rgba_to_hsva, UIContext, render_terrain};
 use crate::utils::math_util::{velocity_to_polar, polar_to_velocity, gradient_along_heading, gradient_perpendicular_heading, generate_non_zero_integer, generate_random_position};
 
@@ -23,6 +23,8 @@ pub struct Cell {
     pub y_pos: f64,
     pub x_vel: f64,
     pub y_vel: f64,
+    pub x_acc: f64,
+    pub y_acc: f64,
     pub heading: f64,
     pub speed: f64,
     pub mass: f64,
@@ -65,7 +67,7 @@ impl Cell {
         // Initialize a new cell
         let mut rng = rand::thread_rng();
         let mut mass: f64 = rng.gen_range(81.0..256.0);
-        let mut radius: f64 = (mass / 3.1415).sqrt();
+        let mut radius: f64 = (mass / PI).sqrt();
         let x_vel: f64 = rng.gen_range(-0.5..0.5);
         let y_vel: f64 = rng.gen_range(-0.5..0.5);
         let mut membrane_color = hsva_to_rgba(rng.gen_range(0.0..1.0), 1.0, 1.0, 1.0);
@@ -77,7 +79,7 @@ impl Cell {
             membrane_color = hsva_to_rgba(0.0, 0.0, 1.0, 1.0);
             inside_color = hsva_to_rgba(0.0, 0.0, 1.0, 1.0);
             mass = 256.0;
-            radius = (mass / 3.1415).sqrt();
+            radius = (mass / PI).sqrt();
         } 
         let (heading, speed) = velocity_to_polar(x_vel, y_vel);
         Self {
@@ -93,6 +95,8 @@ impl Cell {
             y_pos: rng.gen_range((0.0 + radius)..(HEIGHT as f64 - radius)),
             x_vel,
             y_vel,
+            x_acc: 0.0,
+            y_acc: 0.0,
             heading,
             speed,
             mass,
@@ -119,7 +123,7 @@ impl Cell {
     pub fn new_from_reproduction(id: i64, parent_id: i64, creation_step: i64, mass: f64, x_pos: f64, y_pos: f64, x_vel: f64, y_vel: f64, membrane_color: [u8; 4], inside_color: [u8; 4], nucleus_color: [u8; 4], reproductive_cost: f64) -> Self {
         let mut rng = rand::thread_rng();
         let color_mutate_magnitude = 0.04;
-        let mut radius: f64 = (mass / 3.1415).sqrt();
+        let mut radius: f64 = (mass / PI).sqrt();
         let [r, g, b, a] = membrane_color;
         let (mut h, s, v, a) = rgba_to_hsva(r, g, b, a);
         h += rng.gen_range(-color_mutate_magnitude..color_mutate_magnitude);
@@ -151,6 +155,8 @@ impl Cell {
             y_pos,
             x_vel,
             y_vel,
+            x_acc: 0.0,
+            y_acc: 0.0,
             heading,
             speed,
             mass,
@@ -186,9 +192,14 @@ impl Cell {
         self.update_health();
         self.update_energy();
         if self.id == 1 {
-            self.print_cell_properties();
+            //self.print_cell_properties();
         }
         self.update_light_exposure_sense(terrain);
+    }
+    pub fn cell_freq(&mut self) -> f32{
+        let base_frequency = 440.0;
+        let freq = base_frequency * (self.x_acc * self.x_acc + self.y_acc * self.y_acc).sqrt() * self.mass;
+        return freq as f32;
     }
 
     pub fn update_and_check_reproduction(&mut self){
@@ -204,7 +215,7 @@ impl Cell {
             self.energy -= self.reproduction_cost * 0.02 * reproduction_variation;
             self.reproduction_progress += 0.02 * reproduction_variation;
             self.mass += self.reproduction_cost * 0.02 * reproduction_variation;
-            self.radius = (self.mass / 3.1415).sqrt();
+            self.radius = (self.mass / PI).sqrt();
             self.light_consumtion_efficiency = self.mass / 2000.0;
         }
         if self.reproduction_progress >= 1.0 {
@@ -299,15 +310,15 @@ impl Cell {
             let big_rad = f64::max(self.radius, cell2.radius);
 
             if (distance > big_rad - small_rad) && (distance < big_rad + small_rad) {
-                area_overlap = 3.1415 * (small_rad * (big_rad + small_rad - distance)/(2.0*small_rad)).powf(2.0);
+                area_overlap = PI * (small_rad * (big_rad + small_rad - distance)/(2.0*small_rad)).powf(2.0);
             } else if distance <= big_rad - small_rad{
-                area_overlap = 3.1415 * small_rad * small_rad;
+                area_overlap = PI * small_rad * small_rad;
             } else {
                 area_overlap = 0.0;
             }
 
-            let self_percent_overlap = area_overlap / (3.1415 * self.radius * self.radius);
-            let cell2_percent_overlap = area_overlap / (3.1415 * cell2.radius * cell2.radius);
+            let self_percent_overlap = area_overlap / (PI * self.radius * self.radius);
+            let cell2_percent_overlap = area_overlap / (PI * cell2.radius * cell2.radius);
 
             self.light_exposure = self.light_exposure * (1.0 - self_percent_overlap);
             cell2.light_exposure = cell2.light_exposure * (1.0 - self_percent_overlap);
@@ -330,6 +341,11 @@ impl Cell {
             let ax2 = force / cell2.mass as f64;
             let ay2 = force / cell2.mass as f64;
 
+            self.x_acc -= ax1 * nx;
+            self.y_acc -= ax1 * nx;
+            cell2.x_acc += ax2 * nx;
+            cell2.y_acc += ay2 * ny;
+
             self.x_vel -= ax1 * nx;
             self.y_vel -= ay1 * ny;
             cell2.x_vel += ax2 * nx;
@@ -340,6 +356,9 @@ impl Cell {
     pub fn update_velocity(&mut self, gradient: &[Vec<(f64, f64)>]) {
         // Assume self.x_pos and self.y_pos are usize for indexing into the gradient
         let (dx, dy) = gradient[self.x_pos.round() as usize][self.y_pos.round() as usize];
+
+        self.x_acc += dx;
+        self.y_acc += dy;
     
         // Update velocities
         self.x_vel += dx;
@@ -397,8 +416,13 @@ impl Cell {
 }
 
 // Function to update cells in parallel
-pub fn update_cells(cells: &mut Vec<Cell>, terrain: &[Vec<f64>], gradient: &[Vec<(f64, f64)>], loop_step: i64) {
+pub fn update_cells(cells: &mut Vec<Cell>, terrain: &[Vec<f64>], gradient: &[Vec<(f64, f64)>], loop_step: i64) -> Vec<f32> {
     let mut num_cells_updated = 0;
+    let sample_rate = 44100;
+    let samples_per_frame = sample_rate / TARGET_FRAME_RATE;
+    let mut amplitude_sequence = vec![0.0; samples_per_frame as usize];
+    let mut amplitude_mult = 0.001;
+
     reproduce_now(cells, loop_step);
     remove_dead_cells(cells);
     let len = cells.len();
@@ -407,14 +431,28 @@ pub fn update_cells(cells: &mut Vec<Cell>, terrain: &[Vec<f64>], gradient: &[Vec
             let (left, right) = cells.split_at_mut(i + 1);
             let cell1 = &mut left[i];
             let cell2 = &mut right[j - i - 1];
+            cell1.x_acc = 0.0;
+            cell1.y_acc = 0.0;
+            cell2.x_acc = 0.0;
+            cell2.y_acc = 0.0;
             cell1.handle_cell_collision(cell2, terrain);        }
     }
     for cell in cells.iter_mut() {
         cell.update(terrain, gradient, loop_step);
+        if cell.id == 1 {
+                
+            for i in 0..samples_per_frame {
+                let t = i as f32 / sample_rate as f32;  // time in seconds
+                let sample_value = amplitude_mult * f32::sin(2.0 * std::f32::consts::PI * cell.cell_freq() * t);
+                amplitude_sequence[i as usize] += sample_value.abs();
+            }
+        }
         num_cells_updated += 1;
     }    
     println!("Number of cells updated: {}", num_cells_updated);
     println!();
+    //normalize_amplitude(&mut amplitude_sequence);
+    return amplitude_sequence;
 }
 
 pub fn reproduce_now(cells: &mut Vec<Cell>, loop_step: i64) {
@@ -458,4 +496,17 @@ pub fn remove_dead_cells(cells: &mut Vec<Cell>) {
         keep
     });
     //println!("Initial number of cells: {}, Remaining cells: {}", initial_len, cells.len());  // Debug print
+}
+
+pub fn normalize_amplitude(sequence: &mut Vec<f32>) {
+    // Find the maximum value
+    let max_val = sequence
+        .iter()
+        .cloned()
+        .fold(f32::MIN, f32::max);
+
+    // Normalize each value
+    for val in sequence.iter_mut() {
+        *val /= max_val;
+    }
 }

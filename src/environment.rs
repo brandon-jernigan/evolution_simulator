@@ -22,9 +22,9 @@ impl Environment {
         }        Self { cells, terrain, gradient}
     }
 
-    pub fn update(&mut self, loop_step: i64) {
-        update_cells(&mut self.cells, &self.terrain, &self.gradient, loop_step);
-        // Code to update terrain if needed
+    pub fn update(&mut self, loop_step: i64) -> Vec<f32> {
+        let amplitude_sequence = update_cells(&mut self.cells, &self.terrain, &self.gradient, loop_step);
+        return amplitude_sequence;
     }
     pub fn update_terrain(&mut self, width: u32, height: u32, env_seed: u32, loop_step: i64) {
         self.terrain = generate_terrain(width as usize, height as usize, env_seed, loop_step);

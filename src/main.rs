@@ -11,6 +11,7 @@ use std::time::{Duration, Instant, SystemTime};
 use env_logger::Builder;
 use log::{debug, error, info, trace, warn, LevelFilter};
 use rand::Rng;
+use sdl2::audio::{AudioCallback, AudioSpecDesired};
 
 // Internal module imports
 mod cell;
@@ -20,7 +21,7 @@ mod utils;
 
 // Functions from your internal modules
 use crate::utils::log_util::init_logging;
-use crate::utils::ui_util::{handle_events, init_sdl, render_current_state, capture_png}; // Add this line
+use crate::utils::ui_util::{handle_events, init_sdl, render_current_state, capture_png, generate_loud_tone}; // Add this line
 use environment::Environment;
 
 use constants::{ENV_SEED, ENV_STEP, FULLSCREEN, HEIGHT, LOG_LEVEL, WIDTH, FRAME_DUR, TARGET_FRAME_RATE, NUM_CELLS, STEPS_PER_RENDER};
@@ -43,6 +44,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     debug!("main >> init_sdl");
     let (mut ui_context, width, height) = init_sdl()?;
+    let desired_spec = AudioSpecDesired {
+        freq: Some(44100),  // or 48000, or another standard rate
+        channels: Some(1),  // mono output
+        samples: None       // default sample size
+    };
+    let device = ui_context.audio_subsystem.open_queue::<f32, _>(None, &desired_spec)?;
+    device.resume();
 
     debug!("main >> Environment::new. env_seed: {}", env_seed);
     let mut env = Environment::new(width, height, env_seed, loop_step);
@@ -77,7 +85,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
 
         debug!("main >> env.update()");
-        env.update(loop_step);
+        let mut amplitude_sequence = env.update(loop_step);
+        amplitude_sequence = generate_loud_tone();
+        for (i, item) in amplitude_sequence.iter().enumerate() {
+            println!("t:{} A:{}", i, item);
+        }
+        device.queue(&amplitude_sequence);
 
         debug!("main >> env.update_terrain");
         if ENV_STEP {
